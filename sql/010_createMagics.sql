@@ -26,6 +26,15 @@ CREATE TABLE magics (
 	cost int not null,
 	unbalance int not null,
 	level_learn int not null,
-	PRIMARY KEY (id)
+	PRIMARY KEY (id),
+	FOREIGN KEY (project_id) REFERENCES projects(id),
+	FOREIGN KEY (character_id) REFERENCES characters(id),
+	FOREIGN KEY (category_id) REFERENCES categories(id),
+	FOREIGN KEY (type_id) REFERENCES types(id),
+	FOREIGN KEY (element_id) REFERENCES elements(id),
+	FOREIGN KEY (target_type_id) REFERENCES target_types(id),
+	FOREIGN KEY (effect1_id) REFERENCES effects(id),
+	FOREIGN KEY (effect2_id) REFERENCES effects(id)
 );
+
 

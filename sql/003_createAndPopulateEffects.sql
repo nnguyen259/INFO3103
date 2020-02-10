@@ -25,9 +25,15 @@ INSERT INTO effects(id, name, desc1, desc2) VALUES (70, 'Increase MOV', 'Amount 
 INSERT INTO effects(id, name, desc1, desc2) VALUES (71, 'Grant Insight', NULL, '(Optional) Duration');
 INSERT INTO effects(id, name, desc1, desc2) VALUES (72, 'Cure Status', NULL, NULL);
 INSERT INTO effects(id, name, desc1, desc2) VALUES (73, 'Cure Stat Down', NULL, NULL);
+INSERT INTO effects(id, name, desc1, desc2) VALUES (74, 'Cure Status + Stat Down', NULL, NULL);
 INSERT INTO effects(id, name, desc1, desc2) VALUES (77, 'Increase STR/DEF + Insight', 'Amount', '(Optional) Duration');
 INSERT INTO effects(id, name, desc1, desc2) VALUES (78, 'Decrease ATS/ADF', 'Amount', '(Optional) Duration');
+INSERT INTO effects(id, name, desc1, desc2) VALUES (80, 'Increase STR/SPD', 'Amount', '(Optional) Duration');
+INSERT INTO effects(id, name, desc1, desc2) VALUES (81, 'Gain 2 Turns', NULL, NULL);
 INSERT INTO effects(id, name, desc1, desc2) VALUES (82, 'Increase STR/DEF', 'Amount', '(Optional) Duration');
-INSERT INTO effects(id, name, desc1, desc2) VALUES (102, 'CP Increase', 'Amount', NULL);
+INSERT INTO effects(id, name, desc1, desc2) VALUES (101, 'Restore EP', 'Amount', NULL);
+INSERT INTO effects(id, name, desc1, desc2) VALUES (102, 'Restore CP', 'Amount', NULL);
+INSERT INTO effects(id, name, desc1, desc2) VALUES (103, 'Restore HP (%)', 'Amount (%)', NULL);
+INSERT INTO effects(id, name, desc1, desc2) VALUES (104, 'Restore EP (%)', 'Amount (%)', NULL);
 INSERT INTO effects(id, name, desc1, desc2) VALUES (115, 'CP Regen', 'Amount/Turn (x2)', '(Optional) Duration');
 INSERT INTO effects(id, name, desc1, desc2) VALUES (203, 'Analyze Target', NULL, NULL);

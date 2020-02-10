@@ -1,5 +1,6 @@
 import os
 import pymysql.cursors
+from pymysql.err import IntegrityError
 
 path = '../data/text/dat_us/t_magic.tbl'
 f = open(path, 'rb')
@@ -80,8 +81,13 @@ while f.tell() < os.path.getsize(path):
     with connection.cursor() as cursor:
         # Create a new record
         sql = "addMagic"
-        cursor.callproc(sql, [1, id, sort_id, name, desc, animation, label, character_id, category, type, element, target_type, target_range, target_size, e1, e1d1, e1d2, e2, e2d1, e2d2, cast_delay, recovery_delay, cost, unbalance, level_learn])
-
+        try:
+            cursor.callproc(sql, [1, id, sort_id, name, desc, animation, label, character_id, category, type, element, target_type, target_range, target_size, e1, e1d1, e1d2, e2, e2d1, e2d2, cast_delay, recovery_delay, cost, unbalance, level_learn])
+        except IntegrityError:
+            sql2 = "INSERT IGNORE INTO `effects`(`id`, `name`) VALUES (%s, 'PLACEHOLDER')"
+            cursor.execute(sql2, e1)
+            cursor.execute(sql2, e2)
+            cursor.callproc(sql, [1, id, sort_id, name, desc, animation, label, character_id, category, type, element, target_type, target_range, target_size, e1, e1d1, e1d2, e2, e2d1, e2d2, cast_delay, recovery_delay, cost, unbalance, level_learn])
     # connection is not autocommit by default. So you must commit to save
     # your changes.
     connection.commit()
