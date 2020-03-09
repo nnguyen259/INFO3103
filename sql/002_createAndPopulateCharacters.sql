@@ -24,14 +24,14 @@ DROP PROCEDURE IF EXISTS getCharacters;
 DROP PROCEDURE IF EXISTS getCharacter;
 DELIMITER //
 
-CREATE PROCEDURE getCategories()
+CREATE PROCEDURE getCharacters()
 BEGIN
-	SELECT * FROM categories;
+	SELECT * FROM characters;
 END //
 
-CREATE PROCEDURE getCategory(IN idIn int)
+CREATE PROCEDURE getCharacter(IN idIn int)
 BEGIN
-	SELECT * FROM categories WHERE id = idIn;
+	SELECT * FROM characters WHERE id = idIn;
 END //
 
 DELIMITER ;
