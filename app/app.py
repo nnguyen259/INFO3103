@@ -14,6 +14,9 @@ from resources.signin import SignIn
 from resources.category import Category, CategoryList
 from resources.character import Character, CharacterList
 from resources.effect import Effect, EffectList
+from resources.effect import Element, ElementList
+from resources.effect import TargetType, TargetTypeList
+from resources.effect import Type, TypeList
 
 app = Flask(__name__)
 # Set Server-side session config: Save sessions in the local app directory.
@@ -50,7 +53,12 @@ api.add_resource(CharacterList, '/characters', '/characters/')
 api.add_resource(Character, '/characters/<character_id>')
 api.add_resource(EffectList, '/effects', '/effects/')
 api.add_resource(Effect, '/effects/<effect_id>')
-
+api.add_resource(ElementList, '/elements', '/elements/')
+api.add_resource(Element, '/elements/<element_id>')
+api.add_resource(TargetTypeList, '/targetTypes', '/targetTypes/')
+api.add_resource(TargetType, '/targetTypes/<targetType_id>')
+api.add_resource(TypeList, '/types', '/types/')
+api.add_resource(Type, '/types/<type_id>')
 
 #############################################################################
 # xxxxx= last 5 digits of your studentid. If xxxxx > 65535, subtract 30000
