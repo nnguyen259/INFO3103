@@ -13,6 +13,7 @@ import settings # Our server and db settings, stored in settings.py
 from resources.signin import SignIn
 from resources.category import Category, CategoryList
 from resources.character import Character, CharacterList
+from resources.effect import Effect, EffectList
 
 app = Flask(__name__)
 # Set Server-side session config: Save sessions in the local app directory.
@@ -47,6 +48,8 @@ api.add_resource(CategoryList, '/categories', '/categories/')
 api.add_resource(Category, '/categories/<category_id>')
 api.add_resource(CharacterList, '/characters', '/characters/')
 api.add_resource(Character, '/characters/<character_id>')
+api.add_resource(EffectList, '/effects', '/effects/')
+api.add_resource(Effect, '/effects/<effect_id>')
 
 
 #############################################################################
