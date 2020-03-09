@@ -37,3 +37,19 @@ INSERT INTO effects(id, name, desc1, desc2) VALUES (103, 'Restore HP (%)', 'Amou
 INSERT INTO effects(id, name, desc1, desc2) VALUES (104, 'Restore EP (%)', 'Amount (%)', NULL);
 INSERT INTO effects(id, name, desc1, desc2) VALUES (115, 'CP Regen', 'Amount/Turn (x2)', '(Optional) Duration');
 INSERT INTO effects(id, name, desc1, desc2) VALUES (203, 'Analyze Target', NULL, NULL);
+
+DROP PROCEDURE IF EXISTS getEffects;
+DROP PROCEDURE IF EXISTS getEffect;
+DELIMITER //
+
+CREATE PROCEDURE getEffects()
+BEGIN
+	SELECT * FROM effects;
+END //
+
+CREATE PROCEDURE getEffect(IN idIn int)
+BEGIN
+	SELECT * FROM effect WHERE id = idIn;
+END //
+
+DELIMITER ;
