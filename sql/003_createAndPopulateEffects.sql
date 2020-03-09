@@ -49,7 +49,7 @@ END //
 
 CREATE PROCEDURE getEffect(IN idIn int)
 BEGIN
-	SELECT * FROM effect WHERE id = idIn;
+	SELECT * FROM effects WHERE id = idIn;
 END //
 
 DELIMITER ;
