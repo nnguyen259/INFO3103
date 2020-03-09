@@ -1,3 +1,2 @@
-DROP DATABASE IF EXISTS project;
-CREATE DATABASE project;
-USE project;
+USE nnguyen1;
+SET FOREIGN_KEY_CHECKS = 0;

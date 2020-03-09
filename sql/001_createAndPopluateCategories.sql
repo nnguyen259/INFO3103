@@ -17,3 +17,19 @@ INSERT INTO categories(id, name) VALUES (11, 'Active Link Ability');
 INSERT INTO categories(id, name) VALUES (20, 'Art');
 INSERT INTO categories(id, name) VALUES (30, 'Craft');
 INSERT INTO categories(id, name) VALUES (31, 'S-Craft');
+
+DROP PROCEDURE IF EXISTS getCategories;
+DROP PROCEDURE IF EXISTS getCategory;
+DELIMITER //
+
+CREATE PROCEDURE getCategories()
+BEGIN
+	SELECT * FROM categories;
+END //
+
+CREATE PROCEDURE getCategory(IN idIn int)
+BEGIN
+	SELECT * FROM categories WHERE id = idIn;
+END //
+
+DELIMITER ;

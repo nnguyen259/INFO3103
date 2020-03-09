@@ -19,3 +19,19 @@ INSERT INTO characters(id, name) VALUES (10, 'Crow');
 INSERT INTO characters(id, name) VALUES (11, 'Sara');
 INSERT INTO characters(id, name) VALUES (12, 'Angelica');
 INSERT INTO characters(id, name) VALUES (65533, 'Everyone');
+
+DROP PROCEDURE IF EXISTS getCharacters;
+DROP PROCEDURE IF EXISTS getCharacter;
+DELIMITER //
+
+CREATE PROCEDURE getCategories()
+BEGIN
+	SELECT * FROM categories;
+END //
+
+CREATE PROCEDURE getCategory(IN idIn int)
+BEGIN
+	SELECT * FROM categories WHERE id = idIn;
+END //
+
+DELIMITER ;
