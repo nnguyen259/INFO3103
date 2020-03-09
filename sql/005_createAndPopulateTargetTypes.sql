@@ -17,3 +17,19 @@ INSERT INTO target_types(id, name) VALUES (31, 'Target AoE (Stationary)');
 INSERT INTO target_types(id, name) VALUES (32, 'Set AoE (Stationary)');
 INSERT INTO target_types(id, name) VALUES (33, 'Point Black AoE');
 INSERT INTO target_types(id, name) VALUES (34, 'Target All (Divine Knight Battle)');
+
+DROP PROCEDURE IF EXISTS getTargetTypes;
+DROP PROCEDURE IF EXISTS getTargetType;
+DELIMITER //
+
+CREATE PROCEDURE getTargetTypes()
+BEGIN
+	SELECT * FROM target_types;
+END //
+
+CREATE PROCEDURE getTargetType(IN idIn int)
+BEGIN
+	SELECT * FROM target_types WHERE id = idIn;
+END //
+
+DELIMITER ;
