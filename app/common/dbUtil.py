@@ -21,8 +21,8 @@ def postToDb(sqlFunction, *args):
 		cursor = dbConnection.cursor()
 		sqlArgs = args # Must be a collection
 		cursor.callproc(sql,sqlArgs) # stored procedure, with arguments
-		row = cursor.fetchone()
 		dbConnection.commit() # database was modified, commit the changes
+		row = cursor.fetchone()
 	except:
 		abort(500) # Nondescript server error
 	finally:

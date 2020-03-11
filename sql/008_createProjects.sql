@@ -7,13 +7,15 @@ CREATE TABLE projects (
     PRIMARY KEY (id)
 );
 
-INSERT INTO projects(id, name, owner) VALUES (0, 'base', 'root');
+INSERT INTO projects(id, name, owner) VALUES (1, 'base', 'root');
 
 DROP PROCEDURE IF EXISTS createProject;
 DROP PROCEDURE IF EXISTS renameProject;
 DROP PROCEDURE IF EXISTS alterProjectStatus;
 DROP PROCEDURE IF EXISTS getProjects;
 DROP PROCEDURE IF EXISTS getProject;
+DROP PROCEDURE IF EXISTS getProjectsByUser;
+DROP PROCEDURE IF EXISTS deleteProject;
 
 DELIMITER //
 
@@ -39,6 +41,7 @@ BEGIN
 	ELSE
 		INSERT INTO projects(name, owner, isPublic) VALUES(nameIn, ownerIn, publicIn);
 	END IF;
+	SELECT LAST_INSERT_ID();
 END //
 
 CREATE PROCEDURE renameProject(IN idIn int, IN newName varchar(255))
@@ -49,6 +52,11 @@ END //
 CREATE PROCEDURE alterProjectStatus(IN idIn int, IN newStatus boolean)
 BEGIN
 	UPDATE projects SET isPublic = newStatus WHERE id = idIn;
+END //
+
+CREATE PROCEDURE deleteProject(IN idIn int)
+BEGIN
+	DELETE FROM projects WHERE id = idIn;
 END //
 
 DELIMITER ;

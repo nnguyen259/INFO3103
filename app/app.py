@@ -17,6 +17,7 @@ from resources.effect import Effect, EffectList
 from resources.element import Element, ElementList
 from resources.targetType import TargetType, TargetTypeList
 from resources.type import Type, TypeList
+from resources.project import Project, ProjectList
 
 app = Flask(__name__)
 # Set Server-side session config: Save sessions in the local app directory.
@@ -59,6 +60,8 @@ api.add_resource(TargetTypeList, '/targetTypes', '/targetTypes/')
 api.add_resource(TargetType, '/targetTypes/<targetType_id>')
 api.add_resource(TypeList, '/types', '/types/')
 api.add_resource(Type, '/types/<type_id>')
+api.add_resource(ProjectList, '/projects', '/projects/')
+api.add_resource(Project, '/projects/<project_id>')
 
 #############################################################################
 # xxxxx= last 5 digits of your studentid. If xxxxx > 65535, subtract 30000
