@@ -1,9 +1,7 @@
 DROP TABLE IF EXISTS collaborators;
 CREATE TABLE collaborators (
-	id INT NOT NULL AUTO_INCREMENT,
-	user_id INT NOT NULL,
+	username VARCHAR(50) NOT NULL,
 	project_id INT NOT NULL,
-	PRIMARY KEY (id),
-	FOREIGN KEY (user_id) REFERENCES users(id),
+	PRIMARY KEY (username, project_id),
 	FOREIGN KEY (project_id) REFERENCES projects(id)
 );
