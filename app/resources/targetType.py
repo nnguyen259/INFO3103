@@ -12,6 +12,6 @@ class TargetType(Resource):
 
 class TargetTypeList(Resource):
 	def get(self):
-		rows = getFromDb('getTargetType')
+		rows = getFromDb('getTargetTypes')
 		print(rows)
 		return make_response(jsonify({'targetTypes': rows}), 200)

@@ -14,9 +14,9 @@ from resources.signin import SignIn
 from resources.category import Category, CategoryList
 from resources.character import Character, CharacterList
 from resources.effect import Effect, EffectList
-from resources.effect import Element, ElementList
-from resources.effect import TargetType, TargetTypeList
-from resources.effect import Type, TypeList
+from resources.element import Element, ElementList
+from resources.targetType import TargetType, TargetTypeList
+from resources.type import Type, TypeList
 
 app = Flask(__name__)
 # Set Server-side session config: Save sessions in the local app directory.

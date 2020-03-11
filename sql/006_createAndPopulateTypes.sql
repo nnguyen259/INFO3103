@@ -22,7 +22,7 @@ END //
 
 CREATE PROCEDURE getType(IN idIn int)
 BEGIN
-	SELECT * FROM Types WHERE id = idIn;
+	SELECT * FROM types WHERE id = idIn;
 END //
 
 DELIMITER ;

@@ -12,6 +12,6 @@ class Element(Resource):
 
 class ElementList(Resource):
 	def get(self):
-		rows = getFromDb('getElement')
+		rows = getFromDb('getElements')
 		print(rows)
 		return make_response(jsonify({'elements': rows}), 200)
