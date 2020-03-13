@@ -11,7 +11,10 @@ class Project(Resource):
 			abort(404)
 		return make_response(jsonify({'project': row}), 200)
 	def delete(self, project_id):
-		if 'username' not in session:
+		row = getFromDb('getProject', project_id)
+		if not row:
+			abort(404)
+		if 'username' not in session or row['owner'] != session['username']:
 			abort(403)
 		row = postToDb('deleteProject', project_id)
 		uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)
