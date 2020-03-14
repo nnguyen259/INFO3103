@@ -24,7 +24,7 @@ end //
 CREATE PROCEDURE addCollaborator(IN usernameIn VARCHAR(50),IN idIn INT)
 begin
 INSERT INTO collaborators (username, project_id) VALUES
-(usernameIn, idIn)
+(usernameIn, idIn);
 
 END //
 
