@@ -25,7 +25,7 @@ END //
 
 CREATE PROCEDURE getProjectsByUser(IN usernameIn varchar(50), IN onlyShowPublic boolean)
 BEGIN
-	IF onlyShowPublic = true THEN
+	IF onlyShowPublic is true THEN
 		SELECT * FROM projects WHERE owner = usernameIn AND isPublic = true;
 	ELSE
 		SELECT * FROM projects WHERE owner = usernameIn;
