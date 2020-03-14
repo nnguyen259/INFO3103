@@ -62,7 +62,7 @@ api.add_resource(TypeList, '/types', '/types/')
 api.add_resource(Type, '/types/<type_id>')
 api.add_resource(ProjectList, '/projects', '/projects/')
 api.add_resource(Project, '/projects/<project_id>')
-api.add_resource(ProjectsByUser, '/user/projects', '/user/<username>/projects')
+api.add_resource(ProjectsByUser, '/user/<username>/projects')
 api.add_resource(CollaboratorsInProject, '/projects/<project_id>/shared')
 api.add_resource(projectsWithCollaborator, '/user/projects/shared')
 

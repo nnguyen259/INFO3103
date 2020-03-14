@@ -63,11 +63,11 @@ class ProjectList(Resource):
 	
 class ProjectsByUser(Resource):
 	def get(self, username):
-		if not username or username == session['username']:
-			if not 'username' in session:
-				abort(403)
-			username = session['username']
-			rows = getFromDb('getProjectsByUser', username, False)
+		if 'username' in session:
+			if username == session['username']:
+				rows = getFromDb('getProjectsByUser', username, False)
+			else:
+				rows = getFromDb('getProjectsByUser', username, True)
 		else:
 			rows = getFromDb('getProjectsByUser', username, True)
 		return make_response(jsonify({'projects': rows}), 200)
@@ -114,5 +114,5 @@ class projectsWithCollaborator(Resource):
 		if 'username' not in session:
 			abort(403)
 		row = getFromDb('projectsWithCollaborator', session['username'])
-		return make_response(jsonify( { "projects" : uri } ), 200)
+		return make_response(jsonify( { "projects" : row } ), 200)
 		
