@@ -10,8 +10,7 @@ CREATE TABLE projects (
 INSERT INTO projects(id, name, owner) VALUES (1, 'base', 'root');
 
 DROP PROCEDURE IF EXISTS createProject;
-DROP PROCEDURE IF EXISTS renameProject;
-DROP PROCEDURE IF EXISTS alterProjectStatus;
+DROP PROCEDURE IF EXISTS editProject;
 DROP PROCEDURE IF EXISTS getProjects;
 DROP PROCEDURE IF EXISTS getProject;
 DROP PROCEDURE IF EXISTS getProjectsByUser;
@@ -24,9 +23,12 @@ BEGIN
 	SELECT * FROM projects WHERE isPublic = TRUE;
 END //
 
-CREATE PROCEDURE getProjectsByUser(IN usernameIn varchar(50))
+CREATE PROCEDURE getProjectsByUser(IN usernameIn varchar(50), IN onlyShowPublic boolean)
 BEGIN
-	SELECT * FROM projects WHERE owner = usernameIn;
+	IF onlyShowPublic = true THEN
+		SELECT * FROM projects WHERE owner = usernameIn AND isPublic = true;
+	ELSE
+		SELECT * FROM projects WHERE owner = usernameIn;
 END //
 
 CREATE PROCEDURE getProject(IN idIn int)
@@ -44,14 +46,9 @@ BEGIN
 	SELECT LAST_INSERT_ID();
 END //
 
-CREATE PROCEDURE renameProject(IN idIn int, IN newName varchar(255))
+CREATE PROCEDURE editProject(IN idIn int, IN newName varchar(255), IN publicIn boolean)
 BEGIN
-	UPDATE projects SET name = newName WHERE id = idIn;
-END //
-
-CREATE PROCEDURE alterProjectStatus(IN idIn int, IN newStatus boolean)
-BEGIN
-	UPDATE projects SET isPublic = newStatus WHERE id = idIn;
+	UPDATE projects SET name = newName, isPublic = publicIn WHERE id = idIn;
 END //
 
 CREATE PROCEDURE deleteProject(IN idIn int)

@@ -17,7 +17,7 @@ from resources.effect import Effect, EffectList
 from resources.element import Element, ElementList
 from resources.targetType import TargetType, TargetTypeList
 from resources.type import Type, TypeList
-from resources.project import Project, ProjectList
+from resources.project import Project, ProjectList, ProjectsByUser, CollaboratorsInProject, projectsWithCollaborator
 
 app = Flask(__name__)
 # Set Server-side session config: Save sessions in the local app directory.
@@ -62,15 +62,13 @@ api.add_resource(TypeList, '/types', '/types/')
 api.add_resource(Type, '/types/<type_id>')
 api.add_resource(ProjectList, '/projects', '/projects/')
 api.add_resource(Project, '/projects/<project_id>')
+api.add_resource(ProjectsByUser, '/user/projects', '/user/<username>/projects')
+api.add_resource(CollaboratorsInProject, '/projects/<project_id>/shared')
+api.add_resource(projectsWithCollaborator, '/user/projects/shared')
 
 #############################################################################
 # xxxxx= last 5 digits of your studentid. If xxxxx > 65535, subtract 30000
 if __name__ == "__main__":
-	#
-	# You need to generate your own certificates. To do this:
-	#	1. cd to the directory of this app
-	#	2. run the makeCert.sh script and answer the questions.
-	#	   It will by default generate the files with the same names specified below.
 	#
 	context = ('cert.pem', 'key.pem') # Identify the certificates you've generated.
 	app.run(

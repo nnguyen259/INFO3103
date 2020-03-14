@@ -7,8 +7,19 @@ CREATE TABLE collaborators (
 );
 DROP PROCEDURE IF EXISTS addCollaborator;
 DROP PROCEDURE IF EXISTS deleteCollaborator;
+DROP PROCEDURE IF EXISTS collaboratorsInProjects;
+DROP PROCEDURE IF EXISTS projectsWithCollaborators;
 
 DELIMITER //
+CREATE PROCEDURE collaboratorsInProjects(IN idIn INT)
+begin
+		SELECT * FROM collaborators WHERE project_id = idIn;
+end //
+
+CREATE PROCEDURE projectsWithCollaborator(IN nameIn VARCHAR(50))
+begin
+		SELECT * FROM collaborators WHERE username = nameIn;
+end //
 
 CREATE PROCEDURE addCollaborator(IN usernameIn VARCHAR(50),IN idIn INT)
 begin
