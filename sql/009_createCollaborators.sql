@@ -8,7 +8,7 @@ CREATE TABLE collaborators (
 DROP PROCEDURE IF EXISTS addCollaborator;
 DROP PROCEDURE IF EXISTS deleteCollaborator;
 DROP PROCEDURE IF EXISTS collaboratorsInProjects;
-DROP PROCEDURE IF EXISTS projectsWithCollaborators;
+DROP PROCEDURE IF EXISTS projectsWithCollaborator;
 
 DELIMITER //
 CREATE PROCEDURE collaboratorsInProjects(IN idIn INT)
