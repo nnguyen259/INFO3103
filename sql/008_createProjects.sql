@@ -29,6 +29,7 @@ BEGIN
 		SELECT * FROM projects WHERE owner = usernameIn AND isPublic = true;
 	ELSE
 		SELECT * FROM projects WHERE owner = usernameIn;
+	END IF;
 END //
 
 CREATE PROCEDURE getProject(IN idIn int)
