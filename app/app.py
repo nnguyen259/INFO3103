@@ -18,6 +18,7 @@ from resources.element import Element, ElementList
 from resources.targetType import TargetType, TargetTypeList
 from resources.type import Type, TypeList
 from resources.project import Project, ProjectList, ProjectsByUser, CollaboratorsInProject, projectsWithCollaborator
+from resources.magic import Magic, MagicList
 
 app = Flask(__name__)
 # Set Server-side session config: Save sessions in the local app directory.
@@ -62,6 +63,8 @@ api.add_resource(TypeList, '/types', '/types/')
 api.add_resource(Type, '/types/<type_id>')
 api.add_resource(ProjectList, '/projects', '/projects/')
 api.add_resource(Project, '/projects/<project_id>')
+api.add_resource(MagicList, '/projects/<project_id>/magics')
+api.add_resource(Magic, '/projects/<project_id>/magics/<magic_id>')
 api.add_resource(ProjectsByUser, '/user/<username>/projects')
 api.add_resource(CollaboratorsInProject, '/projects/<project_id>/shared')
 api.add_resource(projectsWithCollaborator, '/user/projects/shared')
