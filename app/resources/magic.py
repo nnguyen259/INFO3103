@@ -8,6 +8,10 @@ class Magic(Resource):
         row = getFromDb('getMagic', project_id, magic_id)
         if not row:
             abort(404)
+        magic = row[0]
+        category = getFromDb('getCategory', magic['category_id'])[0]
+        magic['category'] = category
+        magic.pop('category_id')
         return make_response(jsonify({'magic': row}), 200)
     
 class MagicList(Resource):
