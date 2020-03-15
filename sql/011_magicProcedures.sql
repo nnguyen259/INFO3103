@@ -76,6 +76,7 @@ BEGIN
 	UPDATE tmp SET id = id + (SELECT MAX(id) + 1 FROM magics) WHERE project_id = bId;
 	UPDATE tmp SET project_id = pId WHERE project_id = bId;
 	INSERT INTO magics SELECT * FROM tmp WHERE project_id = pId;
+	DROP TABLE tmp;
 END //
 
 DELIMITER ;
