@@ -31,17 +31,17 @@ class Magic(Resource):
         magic.pop('project_id')
         
         effect1 = getFromDb('getEffect', magic['effect1_id'])[0]
-        magic['effect'][0] = effect1
-        magic['effect'][0]['data1'] = magic['effect1_data1']
-        magic['effect'][0]['data2'] = magic['effect1_data2']
+        magic['effect1'] = effect1
+        magic['effect1']['data1'] = magic['effect1_data1']
+        magic['effect1']['data2'] = magic['effect1_data2']
         magic.pop('effect1_id')
         magic.pop('effect1_data1')
         magic.pop('effect1_data2')
         
         effect2 = getFromDb('getEffect', magic['effect2_id'])[0]
-        magic['effect'][1] = effect2
-        magic['effect'][1]['data1'] = magic['effect2_data1']
-        magic['effect'][1]['data2'] = magic['effect2_data2']
+        magic['effect2'] = effect2
+        magic['effect2']['data1'] = magic['effect2_data1']
+        magic['effect2']['data2'] = magic['effect2_data2']
         magic.pop('effect2_id')
         magic.pop('effect2_data1')
         magic.pop('effect2_data2')
