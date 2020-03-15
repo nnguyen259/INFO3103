@@ -63,8 +63,62 @@ class Magic(Resource):
         magic = row[0]
         magic = format(magic)
         
-        
         return make_response(jsonify({'magic': row}), 200)
+    def put(self, project_id, magic_id):
+        if 'username' not in session:
+            abort(403)
+        if not request.json:
+            abort(400)
+        row = getFromDb('getProject', (project_id))
+        if not row:
+            abort(404)
+        if session['username'] != row[0]['owner']:
+            collabs = getFromDb('collaboratorsInProjects', project_id)
+            if not session['username'] in [d['username'] for d in collabs] :
+                abort(403)
+            
+        newSortId = request.json['sort_id'] if 'sort_id' in request.json else row[0]['sort_id']
+        
+        newName = request.json['name'] if 'name' in request.json else row[0]['name']
+        newDesc = request.json['description'] if 'description' in request.json else row[0]['description']
+        newAnimation = request.json['animation'] if 'animation' in request.json else row[0]['animation']
+        newLabel = request.json['label'] if 'label' in request.json else row[0]['label']
+        
+        newCharId = request.json['character_id'] if 'character_id' in request.json else row[0]['character_id']
+        newCatId = request.json['category_id'] if 'category_id' in request.json else row[0]['category_id']
+        newType = request.json['type_id'] if 'type_id' in request.json else row[0]['type_id']
+        newElement = request.json['element_id'] if 'element_id' in request.json else row[0]['element_id']
+        
+        newTargetType = request.json['target_type_id'] if 'target_type_id' in request.json else row[0]['target_type_id']
+        newTargetRange = request.json['target_range'] if 'target_range' in request.json else row[0]['target_range']
+        newTargetSize = request.json['target_size'] if 'target_size' in request.json else row[0]['target_size']
+        
+        newEffect1Id = request.json['effect1_id'] if 'effect1_id' in request.json else row[0]['effect1_id']
+        newEffect1Data1 = request.json['effect1_data1'] if 'effect1_data1' in request.json else row[0]['effect1_data1']
+        newEffect1Data2 = request.json['effect1_data2'] if 'effect1_data2' in request.json else row[0]['effect1_data2']
+        
+        newEffect2Id = request.json['effect2_id'] if 'effect2_id' in request.json else row[0]['effect2_id']
+        newEffect2Data1 = request.json['effect2_data1'] if 'effect2_data1' in request.json else row[0]['effect2_data1']
+        newEffect2Data2 = request.json['effect2_data2'] if 'effect2_data2' in request.json else row[0]['effect2_data2']
+        
+        newCastDelay = request.json['cast_delay'] if 'cast_delay' in request.json else row[0]['cast_delay']
+        newRecoveryDelay = request.json['recovery_delay'] if 'recovery_delay' in request.json else row[0]['recovery_delay']
+        newCost = request.json['cost'] if 'cost' in request.json else row[0]['cost']
+        
+        newUnbalance = request.json['unblance'] if 'unblance' in request.json else row[0]['unblance']
+        newLevelLearn = request.json['level_learn'] if 'level_learn' in request.json else row[0]['level_learn']
+        
+        row = postToDb('editMagic', project_id, magic_id, newSortId,
+                       newName, newDesc, newAnimation, newLabel,
+                       newCharId, newCatId, newType, newElement,
+                       newTargetType, newTargetRange, newTargetSize,
+                       newEffect1Id, newEffect1Data1, newEffect1Data2,
+                       newEffect2Id, newEffect2Data1, newEffect2Data2,
+                       newCastDelay, newRecoveryDelay, newCost,
+                       newUnbalance, newLevelLearn)
+        uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)
+        uri = uri+'/projects'+'/'+ project_id+'/'+magic_id
+        return make_response(jsonify( { "uri" : uri } ), 200)
     
 class MagicList(Resource):
     def get(self, project_id):
