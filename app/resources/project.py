@@ -13,7 +13,7 @@ class Project(Resource):
 			if 'username' not in session:
 				abort(403)
 			if session['username'] != row[0]['owner']:
-				collabs = getFromDb('collaboratorsInProject', project_id)
+				collabs = getFromDb('collaboratorsInProjects', project_id)
 				print(collabs)
 				if not session['username'] in [d['username'] for d in collabs] :
 					abort(403)
@@ -100,7 +100,7 @@ class CollaboratorsInProject(Resource):
 			if 'username' not in session:
 				abort(403)
 			if session['username'] != row[0]['owner']:
-				collabs = getFromDb('collaboratorsInProject', project_id)
+				collabs = getFromDb('collaboratorsInProjects', project_id)
 				if not session['username'] in [d['username'] for d in collabs] :
 					abort(403)
 		rows = getFromDb('collaboratorsInProjects', project_id)

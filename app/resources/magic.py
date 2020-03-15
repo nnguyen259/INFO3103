@@ -12,7 +12,7 @@ class Magic(Resource):
             if 'username' not in session:
                 abort(403)
             if session['username'] != row[0]['owner']:
-                collabs = getFromDb('collaboratorsInProject', project_id)
+                collabs = getFromDb('collaboratorsInProjects', project_id)
                 if not session['username'] in [d['username'] for d in collabs] :
                     abort(403)
         row = getFromDb('getMagic', project_id, magic_id)
@@ -71,7 +71,7 @@ class MagicList(Resource):
             if 'username' not in session:
                 abort(403)
             if session['username'] != row[0]['owner']:
-                collabs = getFromDb('collaboratorsInProject', project_id)
+                collabs = getFromDb('collaboratorsInProjects', project_id)
                 if not session['username'] in [d['username'] for d in collabs] :
                     abort(403)
         row = getFromDb('getMagics', project_id)
