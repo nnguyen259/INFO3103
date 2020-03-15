@@ -135,7 +135,7 @@ class CollaboratorsInProject(Resource):
 		nameIn = request.json['User Name']
 		postToDb('deleteCollaborator', nameIn, project_id)
 		uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)
-		uri = uri+str(request.url_rule)+'/'+'projects/'+project_id+'/shared'
+		uri = uri+'/'+'projects/'+project_id+'/shared'
 		return make_response(jsonify( { "uri" : uri } ), 200)
 	
 class projectsWithCollaborator(Resource):
