@@ -30,7 +30,7 @@ END //
 
 CREATE PROCEDURE deleteCollaborator(IN usernameIn VARCHAR(50), In idIN INT)
 begin
-DELETE FROM collaborator WHERE username = usernameIn AND project_id = idIN;
+DELETE FROM collaborators WHERE username = usernameIn AND project_id = idIN;
 
 END //
 
