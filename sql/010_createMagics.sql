@@ -26,6 +26,7 @@ CREATE TABLE magics (
 	cost int not null,
 	unbalance int not null,
 	level_learn int not null,
+	locked boolean not null default true,
 	PRIMARY KEY (id),
 	FOREIGN KEY (project_id) REFERENCES projects(id),
 	FOREIGN KEY (character_id) REFERENCES characters(id),

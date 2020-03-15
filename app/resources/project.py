@@ -52,11 +52,22 @@ class ProjectList(Resource):
 			abort(403)
 		if not request.json or not 'Name' in request.json:
 			abort(400) # bad request
+		if not 'Base' in request.json:
+			baseId = 1
+		else: baseId = request.json['Base']
 
 		name = request.json['Name']
 		publicStatus = request.json['Visibility'] == 'True'
 
 		row = postToDb('createProject', name, session['username'], publicStatus)
+		
+		baseProject = getFromDb('getProject', baseId)
+		if not baseProject:
+			baseProject = getFromDb('getProject')
+			baseId = 1
+		
+		postToDb('duplicateProject', baseId, row['LAST_INSERT_ID()'])
+		
 		uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)
 		uri = uri+str(request.url_rule)+'/'+str(row['LAST_INSERT_ID()'])
 		return make_response(jsonify( { "uri" : uri } ), 201) # successful resource creation
@@ -90,7 +101,7 @@ class CollaboratorsInProject(Resource):
 		nameIn = request.json['User Name']
 		postToDb('addCollaborator', nameIn, project_id)
 		uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)
-		uri = uri+str(request.url_rule)+'/'+'projects/'+project_id+'/shared'
+		uri = uri+'/'+'projects/'+project_id+'/shared'
 		return make_response(jsonify( { "uri" : uri } ), 200)
 	def delete(self, project_id):
 		if 'username' not in session:

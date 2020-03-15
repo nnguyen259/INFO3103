@@ -1,5 +1,9 @@
 DROP PROCEDURE IF EXISTS addMagic;
 DROP PROCEDURE IF EXISTS editMagic;
+DROP PROCEDURE IF EXISTS getMagic;
+DROP PROCEDURE IF EXISTS getMagics;
+DROP PROCEDURE IF EXISTS deleteMagic;
+DROP PROCEDURE IF EXISTS duplicateProject;
 DELIMITER //
  
 CREATE PROCEDURE addMagic(IN projectIdIn int, IN idIn int, IN sortIdIn int, 
@@ -60,5 +64,18 @@ CREATE PROCEDURE getMagics(IN pId int)
 BEGIN
 	SELECT * FROM magics WHERE project_id = pId;
 END //
- 
+
+CREATE PROCEDURE deleteMagic(IN pId int, IN, mId int)
+BEGIN
+	DELETE FROM magics WHERE project_id = pId AND magic_id = mId AND locked = false;
+END //
+
+CREATE PROCEDURE duplicateProject(IN bId int, pId int)
+BEGIN
+	CREATE TEMPORARY TABLE tmp SELECT * FROM magics WHERE project_id = bId;
+	UPDATE tmp SET project_id = pId WHERE project_id = bId;
+	INSERT INTO magics SELECT * FROM tmp WHERE project_id = pId
+	ON DUPLICATE KEY UPDATE id = (SELECT MAX(id)+1 FROM magics);
+END //
+
 DELIMITER ;
