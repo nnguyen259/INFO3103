@@ -65,7 +65,7 @@ BEGIN
 	SELECT * FROM magics WHERE project_id = pId;
 END //
 
-CREATE PROCEDURE deleteMagic(IN pId int, IN, mId int)
+CREATE PROCEDURE deleteMagic(IN pId int, IN mId int)
 BEGIN
 	DELETE FROM magics WHERE project_id = pId AND magic_id = mId AND locked = false;
 END //
