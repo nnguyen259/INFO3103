@@ -73,9 +73,9 @@ END //
 CREATE PROCEDURE duplicateProject(IN bId int, pId int)
 BEGIN
 	CREATE TEMPORARY TABLE tmp SELECT * FROM magics WHERE project_id = bId;
+	UPDATE tmp SET id = id + (SELECT MAX(id) + 1 FROM magics) WHERE project_id = bId;
 	UPDATE tmp SET project_id = pId WHERE project_id = bId;
-	INSERT INTO magics SELECT * FROM tmp WHERE project_id = pId
-	ON DUPLICATE KEY UPDATE id = (SELECT MAX(id)+1 FROM magics);
+	INSERT INTO magics SELECT * FROM tmp WHERE project_id = pId;
 END //
 
 DELIMITER ;
