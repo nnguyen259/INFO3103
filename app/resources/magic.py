@@ -5,6 +5,16 @@ from common.dbUtil import *
 
 class Magic(Resource):
     def get(self, project_id, magic_id):
+        row = getFromDb('getProject', (project_id))
+        if not row:
+            abort(404)
+        if not row[0]['isPublic']:
+            if 'username' not in session:
+                abort(403)
+            if session['username'] != row[0]['owner']:
+                collabs = getFromDb('collaboratorsInProject', project_id)
+                if not session['username'] in [d['username'] for d in collabs] :
+                    abort(403)
         row = getFromDb('getMagic', project_id, magic_id)
         if not row:
             abort(404)
@@ -54,6 +64,16 @@ class Magic(Resource):
     
 class MagicList(Resource):
     def get(self, project_id):
+        row = getFromDb('getProject', (project_id))
+        if not row:
+            abort(404)
+        if not row[0]['isPublic']:
+            if 'username' not in session:
+                abort(403)
+            if session['username'] != row[0]['owner']:
+                collabs = getFromDb('collaboratorsInProject', project_id)
+                if not session['username'] in [d['username'] for d in collabs] :
+                    abort(403)
         row = getFromDb('getMagics', project_id)
         if not row:
             abort(404)

@@ -9,6 +9,13 @@ class Project(Resource):
 		row = getFromDb('getProject', (project_id))
 		if not row:
 			abort(404)
+		if not row[0]['isPublic']:
+			if 'username' not in session:
+				abort(403)
+			if session['username'] != row[0]['owner']:
+				collabs = getFromDb('collaboratorsInProject', project_id)
+				if not session['username'] in [d['username'] for d in collabs] :
+					abort(403)
 		return make_response(jsonify({'project': row}), 200)
 	def delete(self, project_id):
 		if 'username' not in session:
@@ -85,6 +92,16 @@ class ProjectsByUser(Resource):
 	
 class CollaboratorsInProject(Resource):
 	def get(self, project_id):
+		row = getFromDb('getProject', (project_id))
+		if not row:
+			abort(404)
+		if not row[0]['isPublic']:
+			if 'username' not in session:
+				abort(403)
+			if session['username'] != row[0]['owner']:
+				collabs = getFromDb('collaboratorsInProject', project_id)
+				if not session['username'] in [d['username'] for d in collabs] :
+					abort(403)
 		rows = getFromDb('collaboratorsInProjects', project_id)
 		return make_response(jsonify({'collaborators': rows}), 200)
 	def post(self, project_id):

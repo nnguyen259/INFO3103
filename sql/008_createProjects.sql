@@ -34,7 +34,7 @@ END //
 
 CREATE PROCEDURE getProject(IN idIn int)
 BEGIN
-	SELECT * FROM projects WHERE id = idIn;
+	SELECT * FROM projects WHERE id = idIn AND isPublic = true;
 END //
 
 CREATE PROCEDURE createProject(IN nameIn varchar(255), IN ownerIn varchar(50), IN publicIn boolean)
