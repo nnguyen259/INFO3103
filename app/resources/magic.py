@@ -22,6 +22,10 @@ class Magic(Resource):
         magic['type'] = type
         magic.pop('type_id')
         
+        element = getFromDb('getElement', magic['element_id'])[0]
+        magic['element'] = element
+        magic.pop('element_id')
+        
         targetType = getFromDb('getTargetType', magic['target_type_id'])[0]
         magic['target_type'] = targetType
         magic.pop('target_type_id')
@@ -53,4 +57,9 @@ class MagicList(Resource):
         row = getFromDb('getMagics', project_id)
         if not row:
             abort(404)
+        keyToKeep = ['id', 'project_id', 'magic_id', 'name', 'description']
+        for magic in row:
+            for key in magic.key():
+                if key not in keyToKeep:
+                    magic.pop(key)
         return make_response(jsonify({'magic': row}), 200)
