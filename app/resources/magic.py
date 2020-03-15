@@ -106,7 +106,7 @@ class Magic(Resource):
         newRecoveryDelay = request.json['recovery_delay'] if 'recovery_delay' in request.json else row[0]['recovery_delay']
         newCost = request.json['cost'] if 'cost' in request.json else row[0]['cost']
         
-        newUnbalance = request.json['unblance'] if 'unblance' in request.json else row[0]['unblance']
+        newUnbalance = request.json['unbalance'] if 'unbalance' in request.json else row[0]['unbalance']
         newLevelLearn = request.json['level_learn'] if 'level_learn' in request.json else row[0]['level_learn']
         
         row = postToDb('editMagic', project_id, magic_id, newSortId,
