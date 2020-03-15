@@ -7,4 +7,4 @@ CALL addCollaborator('nnguyen1', 2);
 
 CALL createProject('Not Owned Private', 'root', false);
 CALL duplicateProject(0, 3);
-CALL addCollaborator('nnguyen1', 3)
+CALL addCollaborator('nnguyen1', 3);
