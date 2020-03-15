@@ -76,7 +76,8 @@ class Magic(Resource):
             collabs = getFromDb('collaboratorsInProjects', project_id)
             if not session['username'] in [d['username'] for d in collabs] :
                 abort(403)
-            
+        
+        row = getFromDb("getMagic", project_id, magic_id)
         newSortId = request.json['sort_id'] if 'sort_id' in request.json else row[0]['sort_id']
         
         newName = request.json['name'] if 'name' in request.json else row[0]['name']
