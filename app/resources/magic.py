@@ -59,7 +59,7 @@ class MagicList(Resource):
             abort(404)
         keyToKeep = ['id', 'project_id', 'magic_id', 'name', 'description']
         for magic in row:
-            for key in magic.keys():
+            for key in list(magic):
                 if key not in keyToKeep:
                     magic.pop(key)
         return make_response(jsonify({'magic': row}), 200)
