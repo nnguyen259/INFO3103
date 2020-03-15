@@ -14,6 +14,7 @@ class Project(Resource):
 				abort(403)
 			if session['username'] != row[0]['owner']:
 				collabs = getFromDb('collaboratorsInProject', project_id)
+				print(collabs)
 				if not session['username'] in [d['username'] for d in collabs] :
 					abort(403)
 		return make_response(jsonify({'project': row}), 200)
