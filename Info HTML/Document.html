@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    .submitButton {
+      border-radius: 40px;
+      background-color: #FF0000;
+      border: none;
+      color: #FFFFFF;
+      font-size: 15px;
+      padding: 10px;
+      width: 80px;
+      margin: 5px;
+    }
+
+    .deleteButton {
+      border-radius: 40px;
+      background-color: #000000;
+      border: none;
+      color: #FFFFFF;
+      font-size: 15px;
+      padding: 10px;
+      width: 80px;
+      margin: 5px;
+    }
+
+    .makePublicButton {
+      border-radius: 40px;
+      background-color: #4CAF50;
+      border: none;
+      color: #FFFFFF;
+      font-size: 15px;
+      padding: 10px;
+      width: 80px;
+      margin: 5px;
+    }
+
+    .makePrivateButton {
+      border-radius: 40px;
+      background-color: #0000FF;
+      border: none;
+      color: #FFFFFF;
+      font-size: 15px;
+      padding: 10px;
+      width: 80px;
+      margin: 5px;
+    }
+  </style>
+  <body style="background-color:#add8e6;">
+   <center>
+     <h2>Private Document</h2>
+     <p><label>Name:</label></p>
+     <input type="text" placeholder="File Name" name="title" required>
+     <p><label>File Content:</label></p>
+     <p><textarea id="text" placeholder=""rows="35" cols="80"></textarea></p>
+     <button class="submitButton" onclick="">Submit</button>
+     <button class="deleteButton" onclick="">Delete</button>
+     <button class="makePublicButton" onclick="">Public</button>
+     <button class="makePrivateButton" onclick="">Private</button>
+   </center>
+</html>
