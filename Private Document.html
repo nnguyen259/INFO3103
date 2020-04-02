@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    .submitButton {
+      border-radius: 40px;
+      background-color: #FF0000;
+      border: none;
+      color: #FFFFFF;
+      font-size: 15px;
+      padding: 10px;
+      width: 80px;
+      margin: 5px;
+    }
+
+    .deleteButton {
+      border-radius: 40px;
+      background-color: #000000;
+      border: none;
+      color: #FFFFFF;
+      font-size: 15px;
+      padding: 10px;
+      width: 80px;
+      margin: 5px;
+    }
+
+    .makePublicButton {
+      border-radius: 40px;
+      background-color: #4CAF50;
+      border: none;
+      color: #FFFFFF;
+      font-size: 15px;
+      padding: 10px;
+      width: 80px;
+      margin: 5px;
+    }
+
+    .makePrivateButton {
+      border-radius: 40px;
+      background-color: #0000FF;
+      border: none;
+      color: #FFFFFF;
+      font-size: 15px;
+      padding: 10px;
+      width: 80px;
+      margin: 5px;
+    }
+
+    .backButton {
+      border-radius: 40px;
+      background-color: #FF0000;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 15px;
+      padding: 10px;
+      width: 80px;
+      margin: 5px;
+      float: left;
+      display: block;
+    }
+
+    #div{
+      text-indent: -90px;
+      font-size: 30px;
+    }
+
+    #div2{
+      text-indent: -90px;
+      font-size: 16px;
+    }
+
+  </style>
+  <body style="background-color:#add8e6;">
+   <button class="backButton" onclick="location.href='file:///Users/tristancarrier/Desktop/Info HTML/Private.html'">Back</button>
+   <center>
+     <div id="div"<h1>Private Document</h1></div>
+     <p><div id="div2"<h1>Name:</h1></div><p>
+     <input type="text" placeholder="File Name" name="title" required>
+     <p><label>File Content:</label></p>
+     <p><textarea id="text" placeholder=""rows="35" cols="80"></textarea></p>
+     <button class="submitButton" onclick="">Submit</button>
+     <button class="deleteButton" onclick="">Delete</button>
+     <button class="makePublicButton" onclick="">Public</button>
+     <button class="makePrivateButton" onclick="">Private</button>
+   </center>
+</html>

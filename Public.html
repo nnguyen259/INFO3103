@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+button1 is the public button
+button2 is the private button
+button3 is the shared button
+-->
+<style>
+.button1 {
+  border-radius: 10px;
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 20px 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button2 {
+  border-radius: 10px;
+  background-color: #00bfff;
+  border: none;
+  color: white;
+  padding: 20px 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+.button2:hover {
+  background-color: Blue;
+}
+
+.button3 {
+  border-radius: 10px;
+  background-color: #ffd700;
+  border: none;
+  color: white;
+  padding: 20px 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+.button3:hover {
+  background-color: #ff8c00;
+}
+
+.submitButton {
+  top:+90px;
+}
+#folder {
+   background-image: url('https://i.ibb.co/pbt9c4M/Screen-Shot-2020-03-25-at-2-58-56-PM.png');
+   height: 140px;
+   width: 190px;
+   position: relative;
+   top:+30px;
+}
+#folder:hover {
+   background-image: url('https://i.ibb.co/C8XSG6Z/Screen-Shot-2020-03-25-at-2-58-59-PM.png');
+}
+
+.logInButton {
+  border-radius: 40px;
+  background-color: #FF0000;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+  width: 80px;
+  margin: 5px;
+  float: right;
+  display: block;
+}
+
+#div{
+  text-indent: 90px;
+  font-size: 40px;
+}
+
+</style>
+</head>
+<body style="background-color:#90ee90;">
+  <button class="logInButton" onclick="location.href='file:///Users/tristancarrier/Desktop/Info HTML/LogIn.html'">LogIn</button>
+  <center>
+    <div id="div"<h1>GitMod</h1></div>
+    <hr>
+    <h2>Public</h2>
+  </center>
+  <button class="button1" onclick="location.href='file:///Users/tristancarrier/Desktop/Info HTML/Public.html'">Public</button>
+  <button class="button2" onclick="location.href='file:///Users/tristancarrier/Desktop/Info HTML/Private.html'">Private</button>
+  <button class="button3" onclick="location.href='file:///Users/tristancarrier/Desktop/Info HTML/Shared.html'">Shared</button>
+  <a href="Public Document.html"><div id="folder"></div>
+</html>
