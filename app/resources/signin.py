@@ -87,7 +87,7 @@ class SignIn(Resource):
 
 	def delete(self):
 		session.pop('username', None)
-		response = {'status': 'success'}
-		responseCode = 200
-		return make_response(jsonify(response), responseCode)
+		uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)
+		uri = uri+'/'+'projects'
+		return make_response(jsonify( { "uri" : uri } ), 200)
 
