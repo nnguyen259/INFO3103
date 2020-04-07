@@ -35,7 +35,7 @@ class SignIn(Resource):
 			abort(400) # bad request
 
 		if request_params['username'] in session:
-			response = {'status': 'success'}
+			response = {'status': 'success', 'user_id' : session['username']}
 			responseCode = 200
 		else:
 			try:
@@ -52,7 +52,7 @@ class SignIn(Resource):
 				ldapConnection.bind()
 				# At this point we have sucessfully authenticated.
 				session['username'] = request_params['username']
-				response = {'status': 'success' }
+				response = {'status': 'success', 'user_id': session['username']}
 				responseCode = 201
 			except LDAPException:
 				abort(403)
@@ -70,7 +70,7 @@ class SignIn(Resource):
 		success = False
 		if 'username' in session:
 			username = session['username']
-			response = {'status': 'success'}
+			response = {'status': 'success', 'user_id' : username}
 			responseCode = 200
 		else:
 			response = {'status': 'fail'}
