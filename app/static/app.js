@@ -44,7 +44,7 @@ var app = new Vue({
 	}
   },
   //------- lifecyle hooks --------
-  /*mounted: function() {
+  mounted: function() {
     axios
     .get(this.serviceURL+"/signin")
     .then(response => {
@@ -57,7 +57,8 @@ var app = new Vue({
         this.authenticated = false;
         console.log(error);
     });
-  },*/
+    this.getPublic();
+  },
   //------- methods --------
   methods: {
     login() {
@@ -72,7 +73,7 @@ var app = new Vue({
             if (response.data.status == "success") {
 			  console.log("success");
               this.authenticated = true;
-              this.loggedIn = response.data.user_id;
+              this.loggedIn = this.input.username;
             }
         })
         .catch(e => {
@@ -105,7 +106,7 @@ var app = new Vue({
 		console.log("hello")
 	},
 	
-	fetchSchools() {
+	getPublic() {
       axios
       .get(this.serviceURL+"/projects")
       .then(response => {
