@@ -20,7 +20,7 @@ button3 is the shared button
 				<button type="button" class="btn btn-primary mb-2" v-on:click="login()">Login</button>
 			</form>
 			<form v-else class="form-inline" style="display: flex; justify-content: flex-end">
-				<div class="form-group mx-sm-3 mb-2">
+				<div class="form-group mx-sm-3 mb-2" v:model="this.loggedIn">
 					<label>Hello, {{this.loggedIn }}</label>
 				</div>
 				<button type="button" class="btn btn-primary mb-2" v-on:click="logout()">Logout</button>
