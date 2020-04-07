@@ -19,13 +19,13 @@ button3 is the shared button
 					<label for="password" class="sr-only">Password</label>
 					<input type="password" class="form-control" id="password" placeholder="Password" v-model="input.password">
 				</div>
-				<button type="submit" class="btn btn-primary mb-2" v-on:click="login()">Login</button>
+				<button class="btn btn-primary mb-2" v-on:click="login()">Login</button>
 			</form>
 			<form v-else class="form-inline" style="display: flex; justify-content: flex-end">
 				<div class="form-group mx-sm-3 mb-2">
 					<label>Hello, {{this.loggedIn }}</label>
 				</div>
-				<button type="submit" class="btn btn-primary mb-2" v-on:click="logout()">Logout</button>
+				<button class="btn btn-primary mb-2" v-on:click="logout()">Logout</button>
 			</form>
 			<center>
 				<div id="div"><h1>Shared</h1></div>
