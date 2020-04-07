@@ -39,7 +39,7 @@ button3 is the shared button
 			<div class="col-3">
 				<div id="projectsList">
 					<div class="list-group" id="list-tab" role="tablist">
-						<button v-if="!authenticated" data-toggle="list" v-on:click="getPublic()"><b>Create New Project</b></button>
+						<button v-if="authenticated" data-toggle="list" v-on:click="getPublic()"><b>Create New Project</b></button>
 						<a v-for="project in projectsData" :id="'list-' + project.id + '-list'" class="list-group-item list-group-item-action" data-toggle="list" role="tab" :href="'#' + project.id" v-on:click="test()">
 							<div class="d-flex w-100 justify-content-between">
 								{{project.name}}

@@ -111,12 +111,24 @@ var app = new Vue({
       .get(this.serviceURL+"/projects")
       .then(response => {
           this.projectsData = response.data.projects;
+          document.body.style.backgroundColor= "lightgreen";
       })
       .catch(e => {
         alert("Unable to load the school data");
         console.log(e);
       });
+      
     },
+    
+    getPrivate() {
+    	this.projectData = null;
+    	document.body.style.backgroundColor= "lightblue";
+    }
+    
+    getShared() {
+    	this.projectData = null;
+    	document.body.style.backgroundColor= "Sandybrown";
+    }
   }
   //------- END methods --------
 
