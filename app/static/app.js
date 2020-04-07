@@ -68,6 +68,7 @@ var app = new Vue({
             "password": this.input.password
         })
         .then(response => {
+        	console.log(response);
             if (response.data.status == "success") {
 			  console.log("success");
               this.authenticated = true;
