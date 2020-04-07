@@ -44,7 +44,7 @@ var app = new Vue({
 	}
   },
   //------- lifecyle hooks --------
-  mounted: function() {
+  /*mounted: function() {
     axios
     .get(this.serviceURL+"/signin")
     .then(response => {
@@ -57,7 +57,7 @@ var app = new Vue({
         this.authenticated = false;
         console.log(error);
     });
-  },
+  },*/
   //------- methods --------
   methods: {
     login() {
