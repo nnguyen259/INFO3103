@@ -123,12 +123,12 @@ var app = new Vue({
     getPrivate() {
     	this.projectData = null;
     	document.body.style.backgroundColor= "lightblue";
-    }
+    },
     
     getShared() {
     	this.projectData = null;
     	document.body.style.backgroundColor= "Sandybrown";
-    }
+    },
   }
   //------- END methods --------
 
