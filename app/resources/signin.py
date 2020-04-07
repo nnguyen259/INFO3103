@@ -55,8 +55,7 @@ class SignIn(Resource):
 				response = {'status': 'success' }
 				responseCode = 201
 			except LDAPException:
-				response = {'status': 'Access denied'}
-				responseCode = 403
+				abort(403)
 			finally:
 				ldapConnection.unbind()
 
