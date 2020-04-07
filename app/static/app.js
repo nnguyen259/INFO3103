@@ -48,6 +48,7 @@ var app = new Vue({
     axios
     .get(this.serviceURL+"/signin")
     .then(response => {
+      console.log(response);
       if (response.data.status == "success") {
         this.authenticated = true;
         this.loggedIn = response.data.user_id;
@@ -73,7 +74,7 @@ var app = new Vue({
             if (response.data.status == "success") {
 			  console.log("success");
               this.authenticated = true;
-              this.loggedIn = this.input.username;
+              this.loggedIn = response.data.user_id;
             }
         })
         .catch(e => {
