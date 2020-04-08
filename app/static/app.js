@@ -126,7 +126,7 @@ var app = new Vue({
     		axios.get(this.serviceURL+"/user/"+this.loggedIn+"/projects")
     	])
     	.then(axios.spread((arr1, arr2) => {
-    		this.eligibleProjects = $.extend(arr1.data.projects, arr2.data.projects);
+    		this.eligibleProjects = arr1.data.projects.concat(arr2.data.projects);
     	}));
     },
     
