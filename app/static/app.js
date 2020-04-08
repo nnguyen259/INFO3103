@@ -132,7 +132,7 @@ var app = new Vue({
     		for(x in publicArray){
     			console.log(publicArray[x]);
     		}
-    		return publicArray;
+    		return 1;
     	});
     	
     },
