@@ -107,7 +107,7 @@ var app = new Vue({
 	
 	selectProject(projectId){
 		for (x in this.projectsData){
-			if (this.projectsData[x].schoolId == schoolId) {
+			if (this.projectsData[x].projectId == projectId) {
 				this.selectedProject = this.projectData[x];
 			}
 		}
