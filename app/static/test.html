@@ -8,7 +8,7 @@
 </head>
 <body style="background-color:lightgreen;">
 	<div class="container-fluid d-flex flex-column h-100" id="app">
-		<header class="header" id="header">
+		<div id="header">
 			<form v-if="!authenticated" class="form-inline" style="display: flex; justify-content: flex-end">
 				<div class="form-group mb-2">
 					<input type="text" name="username" class="form-control" placeholder="Username" v-model="input.username">
@@ -27,10 +27,10 @@
 			<center>
 				<div id="div"><h1>Gitmod</h1></div>
 			</center>
-		</header>
+		</div>
 		
 		
-		<div class="row">
+		<div class="row flex-grow-1">
 			<div class="col-3">
 				<h3>Projects List</h3>
 				<div v-if="authenticated" class="btn-group d-flex" role="group">
@@ -51,9 +51,7 @@
 			</div>
 			<div class="col mr-4" style="background-color:#ffffff">
 				<div v-if="creatingProject">
-					<footer class="footer">
-						<button type="button">Create</button>
-					</footer>
+					<button type="button">Create</button>
 				</div>
 				<div v-else>
 					{{selectedProject.id}}<br>
@@ -61,8 +59,9 @@
 				</div>
 			</div>
 		</div>
+		<div>Made by Nhan Nguyen</div>
 	</div>
-	<div>Made by Nhan Nguyen</div>
+	
 	
 	
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
