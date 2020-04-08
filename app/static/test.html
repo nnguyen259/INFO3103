@@ -51,18 +51,17 @@
 			</div>
 			<div class="col mr-4" style="background-color:#ffffff">
 				<div v-if="creatingProject">
-					<div class="form-group col-6">
-			          <div class="input-group mb-3">
-			            <div class="input-group-prepend">
-			              <span class="input-group-text  modal-prepend">School Name</span>
-			            </div>
-			            <input class="col-8 form-control" type="text" id="schoolName" v-model="selectedProject.name" placeholder="Project Name" />
-			          </div>
-			    	</div>
-			    	<div v-for="project in eligibleProjects">
-			    		{{project.name}}<br>
-			    		{{project.id}}
-			    	</div>
+					<div v-if="authenticated">
+						<div class="form-group col-6">
+				          <div class="input-group mb-3">
+				            <div class="input-group-prepend">
+				              <span class="input-group-text  modal-prepend">School Name</span>
+				            </div>
+				            <input class="col-8 form-control" type="text" id="schoolName" v-model="selectedProject.name" placeholder="Project Name" />
+				          </div>
+				    	</div>
+					</div>
+			    	
 				</div>
 				<div v-else>
 					{{selectedProject.id}}<br>
