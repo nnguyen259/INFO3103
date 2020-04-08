@@ -131,7 +131,7 @@ var app = new Vue({
     		userCreatedArray = response.data.projects;
     		$.extend(publicArray, userCreatedArray);
     		for(x in publicArray){
-    			console.log(x);
+    			console.log(publicArray[x]);
     		}
     		return publicArray;
     	});
