@@ -130,7 +130,7 @@ var app = new Vue({
     	.get(this.serviceURL+"/user/"+this.loggedIn+"/projects")
     	.then(response => {
     		$.extend(publicArray, response.data.projects);
-    		this.eligibleProjects = publicArray;
+    		//this.eligibleProjects = publicArray;
     	});
     	
     },
