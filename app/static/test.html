@@ -31,7 +31,7 @@
 		
 		
 		<div class="row flex-grow-1">
-			<div class="col-3" style="background-color:#ccffff">
+			<div class="col-3 mx-2" style="background-color:#ccffff">
 				<h3>Projects List</h3>
 				<div v-if="authenticated" class="btn-group d-flex" role="group">
 					<button type="button" class="btn btn-success w-100" v-on:click="getPublic()">Public</button>
@@ -67,6 +67,14 @@
 				            <select class="custom-select col-8" v-model="selectedProject.id">
 				            	<option v-for="project in eligibleProjects" :value="project.id">{{project.name}}</option>
 				            </select>
+				          </div>
+				          <div class="input-group mb-3">
+				            <div class="input-group-prepend">
+				              <span class="input-group-text  modal-prepend">Public</span>
+				            </div>
+				            <div class="form-check">
+				            	<input class="radio-inline" type="radio" value="true" name="projectPublic" v-model="selectedProject.isPublic">Yes</input>
+				            </div>
 				          </div>
 				          <button type="button" class="btn btn-success">Submit</button>
 				    	</div>
