@@ -120,20 +120,14 @@ var app = new Vue({
     },
     
     getEligibleToBased(){
-    	var publicArray = "";
     	axios
-    	.get(this.serviceURL+"/projects")
-    	.then(response => {
-    		this.eligibleProjects = response.data.projects;
-    	});
-    	
-    	var userCreatedArray = "";
-    	axios
-    	.get(this.serviceURL+"/user/"+this.loggedIn+"/projects")
-    	.then(response => {
-    		$.extend(this.eligibleProjects, response.data.projects);
-    	});
-    	
+    	.all([
+    		axios.get(this.serviceURL+"/projects"),
+    		axios.get(this.serviceURL+"/user/"+this.loggedIn+"/projects")
+    	])
+    	.then(axios.spread(arr1, arr2) => {
+    		this.eligibleProjects = arr1.data.projects.concat(arr2.data.projects);
+    	})
     },
     
     
