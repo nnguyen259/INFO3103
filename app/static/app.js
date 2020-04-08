@@ -129,7 +129,7 @@ var app = new Vue({
     	axios
     	.get(this.serviceURL+"/projects")
     	.then(response => {
-    		console.log('response');
+    		console.log(response);
     		publicArray = response.data.projects;
     	});
     	console.log(publicArray);
