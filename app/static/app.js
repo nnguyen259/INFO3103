@@ -30,7 +30,6 @@ var app = new Vue({
     axios
     .get(this.serviceURL+"/signin")
     .then(response => {
-      console.log(response);
       if (response.data.status == "success") {
         this.authenticated = true;
         this.loggedIn = response.data.user_id;
@@ -52,9 +51,7 @@ var app = new Vue({
             "password": this.input.password
         })
         .then(response => {
-        	console.log(response);
             if (response.data.status == "success") {
-			  console.log("success");
               this.authenticated = true;
               this.loggedIn = response.data.user_id;
             }
@@ -132,6 +129,7 @@ var app = new Vue({
     		console.log(response);
     		publicArray = response.data.projects;
     	});
+    	console.log("public array");
     	console.log(publicArray);
     	
     	var userCreatedArray;
