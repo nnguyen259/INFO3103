@@ -127,7 +127,6 @@ var app = new Vue({
     	.get(this.serviceURL+"/projects")
     	.then(response => {
     		publicArray = response.data.projects;
-    		console.log(publicArray);
     	});
     	
     	var userCreatedArray;
@@ -135,11 +134,12 @@ var app = new Vue({
     	.get(this.serviceURL+"/user/"+this.loggedIn+"/projects")
     	.then(response => {
     		userCreatedArray = response.data.projects;
+    		console.log("user array");
+    		console.log(userCreatedArray);
     		$.extend(publicArray, userCreatedArray);
+    		console.log("all array");
+    		console.log(publicArray);
     	});
-    	
-    	$.extend(publicArray, userCreatedArray);
-    	return publicArray;
     	
     },
   }
