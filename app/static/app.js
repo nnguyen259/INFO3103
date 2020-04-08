@@ -81,13 +81,14 @@ var app = new Vue({
     },
     
     createProject(){
+    	this.selectedProject = {};
     	this.creatingProject = true;
     },
 	
 	selectProject(projectId){
 		for (x in this.projectsData){
 			if (this.projectsData[x].id == projectId) {
-				this.selectedProject = this.projectsData[x];
+				this.selectedProject = JSON.parse(JSON.stringify(this.projectsData[x]));
 				this.creatingProject = false;
 			}
 		}
