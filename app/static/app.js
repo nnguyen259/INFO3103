@@ -122,7 +122,7 @@ var app = new Vue({
     	axios
     	.get(this.serviceURL+"/projects")
     	.then(response => {
-    		publicArray = response.data.projects;
+    		this.eligibleProjects = response.data.projects;
     	});
     	
     	var userCreatedArray = "";
