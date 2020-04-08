@@ -23,7 +23,8 @@ var app = new Vue({
 		isPublic: "",
 		name: "",
 		owner: ""
-	}
+	},
+	eligibleProjects:{}
   },
   //------- lifecyle hooks --------
   mounted: function() {
@@ -129,10 +130,7 @@ var app = new Vue({
     	.get(this.serviceURL+"/user/"+this.loggedIn+"/projects")
     	.then(response => {
     		$.extend(publicArray, response.data.projects);
-    		for(x in publicArray){
-    			console.log(publicArray[x]);
-    		}
-    		return 1;
+    		this.eligibleProjects = publicArray;
     	});
     	
     },

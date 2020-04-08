@@ -59,7 +59,7 @@
 			            <input class="col-8 form-control" type="text" id="schoolName" v-model="selectedProject.name" placeholder="Project Name" />
 			          </div>
 			    	</div>
-			    	<div v-for="project in getEligibleToBased()">
+			    	<div v-for="project in eligibleProjects">
 			    		{{project.name}}<br>
 			    		{{project.id}}
 			    	</div>
