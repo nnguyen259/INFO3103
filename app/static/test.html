@@ -8,7 +8,7 @@
 </head>
 <body style="background-color:lightgreen;">
 	<div class="container-fluid" id="app">
-		<div id="header">
+		<header class="header" id="header">
 			<form v-if="!authenticated" class="form-inline" style="display: flex; justify-content: flex-end">
 				<div class="form-group mb-2">
 					<input type="text" name="username" class="form-control" placeholder="Username" v-model="input.username">
@@ -27,7 +27,7 @@
 			<center>
 				<div id="div"><h1>Gitmod</h1></div>
 			</center>
-		</div>
+		</header>
 		
 		
 		<div class="row">
