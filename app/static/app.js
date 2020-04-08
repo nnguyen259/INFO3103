@@ -133,6 +133,7 @@ var app = new Vue({
     		console.log("public array", publicArray)
     		$.extend(publicArray, userCreatedArray);
     		console.log("all array", publicArray);
+    		return publicArray;
     	});
     	
     },
