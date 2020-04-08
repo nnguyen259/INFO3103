@@ -17,6 +17,7 @@ var app = new Vue({
       password: ""
     },
 	creatingProject: true,
+	currentTab: "Public",
 	selectedProject: {
 		id: "",
 		isPublic: "",
@@ -117,7 +118,31 @@ var app = new Vue({
     	this.projectsData = null;
     	document.body.style.backgroundColor= "Sandybrown";
     },
-  }
+    
+    
+  },
   //------- END methods --------
+  
+  computed: {
+	  getEligibleToBased: function(){
+    	var publicArray;
+    	axios
+    	.get(this.serviceURL+"/projects")
+    	.then(response => {
+    		publicArray = response.data.projects;
+    	});
+    	
+    	var userCreatedArray;
+    	axios
+    	.get(this.serviceURL+"/user/"+this.loggedIn+"/projects")
+    	.then(response => {
+    		userCreatedArray = response.data.projects;
+    	});
+    	
+    	$.extend(publicArray, userCreatedArray);
+    	return publicArray;
+    	
+    },
+  }
 
 });
