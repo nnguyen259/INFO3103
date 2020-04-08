@@ -52,7 +52,8 @@
 			<div class="col mr-4" style="background-color:#ffffff">
 				<div v-if="creatingProject">
 					<div v-if="authenticated">
-						<div class="form-group col-6">
+						<div class="form-group col-6 pt-3">
+						  <h4>Create Project</h4>
 				          <div class="input-group mb-3">
 				            <div class="input-group-prepend">
 				              <span class="input-group-text  modal-prepend">Project Name</span>
@@ -67,6 +68,7 @@
 				            	<option v-for="project in eligibleProjects" :value="project.id">{{project.name}}</option>
 				            </select>
 				          </div>
+				          <button type="button" class="btn btn-success">Submit</button>
 				    	</div>
 					</div>
 			    	
