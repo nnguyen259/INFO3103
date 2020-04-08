@@ -34,7 +34,7 @@ var app = new Vue({
       username: "",
       password: ""
     },
-	createProject: true,
+	creatingProject: true,
 	selectedProject: {
 		id: "",
 		isPublic: "",
@@ -99,14 +99,14 @@ var app = new Vue({
     },
     
     createProject(){
-    	this.createProject = true;
+    	this.creatingProject = true;
     },
 	
 	selectProject(projectId){
 		for (x in this.projectsData){
 			if (this.projectsData[x].id == projectId) {
 				this.selectedProject = this.projectsData[x];
-				this.createProject = false;
+				this.creatingProject = false;
 			}
 		}
 	},
