@@ -124,13 +124,14 @@ var app = new Vue({
   //------- END methods --------
   
   computed: {
-	  getEligibleToBased: function(){
+	  getEligibleToBased(){
     	var publicArray;
     	axios
     	.get(this.serviceURL+"/projects")
     	.then(response => {
     		publicArray = response.data.projects;
     	});
+    	console.log(publicArray);
     	
     	var userCreatedArray;
     	axios
