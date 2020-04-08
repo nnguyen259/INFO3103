@@ -40,8 +40,8 @@
 				</div><br>
 				<div id="projectsList">
 					<div class="list-group" id="list-tab" role="tablist">
-						<button type="button" class="btn btn-secondary" v-if="authenticated" data-toggle="list" v-on:click="getPublic()"><b>Create New Project</b></button>
-						<a v-for="project in projectsData" :id="'list-' + project.id + '-list'" class="list-group-item list-group-item-action" data-toggle="list" role="tab" :href="'#' + project.id" v-on:click="test()">
+						<button type="button" class="btn btn-secondary" v-if="authenticated" data-toggle="list" v-on:click="createProject()"><b>Create New Project</b></button>
+						<a v-for="project in projectsData" :id="'list-' + project.id + '-list'" class="list-group-item list-group-item-action" data-toggle="list" role="tab" :href="'#' + project.id" v-on:click="selectProjects(project.id)">
 							<div class="d-flex w-100 justify-content-between">
 								{{project.name}}
 							</div>
@@ -50,7 +50,13 @@
 				</div>
 			</div>
 			<div class="col mr-4" style="background-color:#ffffff">
-				The other col
+				<div v-if="selectedProject.id == ''">
+					New Project Page
+				</div>
+				<div v-else>
+					{{selectedProject.id}}<br>
+					{{selectedProject.name}}
+				</div>
 			</div>
 		</div>
 	</div>

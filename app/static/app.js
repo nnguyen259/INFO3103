@@ -34,7 +34,7 @@ var app = new Vue({
       username: "",
       password: ""
     },
-	currentTab: "Private",
+	editMode: false,
 	selectedProject: {
 		id: "",
 		isPublic: "",
@@ -97,13 +97,20 @@ var app = new Vue({
         console.log(e);
       });
     },
-	
-	deleteSchool(schoolId) {
-      alert("This feature not available until YOUR version of schools.")
+    
+    createProject(){
+    	this.selectedProject.id = "";
+    	this.selectedProject.owner = "";
+    	this.selectedProject.name = "";
+    	this.selectedProject.isPublic = "";
     },
 	
-	test(){
-		console.log("hello")
+	selectProject(projectId){
+		for (x in this.projectsData){
+			if (this.projectsData[x].schoolId == schoolId) {
+				this.selectedProject = this.projectData[x];
+			}
+		}
 	},
 	
 	getPublic() {
