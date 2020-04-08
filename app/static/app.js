@@ -34,6 +34,7 @@ var app = new Vue({
       if (response.data.status == "success") {
         this.authenticated = true;
         this.loggedIn = response.data.user_id;
+        this.createProject();
       }
     })
     .catch(error => {
@@ -82,6 +83,7 @@ var app = new Vue({
     createProject(){
     	this.selectedProject = {};
     	this.creatingProject = true;
+    	this.getEligibleToBased();
     },
 	
 	selectProject(projectId){
