@@ -55,9 +55,17 @@
 						<div class="form-group col-6">
 				          <div class="input-group mb-3">
 				            <div class="input-group-prepend">
-				              <span class="input-group-text  modal-prepend">School Name</span>
+				              <span class="input-group-text  modal-prepend">Project Name</span>
 				            </div>
 				            <input class="col-8 form-control" type="text" id="schoolName" v-model="selectedProject.name" placeholder="Project Name" />
+				          </div>
+				          <div class="input-group mb-3">
+				            <div class="input-group-prepend">
+				              <span class="input-group-text  modal-prepend">Base Project</span>
+				            </div>
+				            <select class="custom-select col-8">
+				            	<option v-for="project in eligibleProjects" :value="project.id" v-model="selectedProject.id">{{project.name}}</option>
+				            </select>
 				          </div>
 				    	</div>
 					</div>
