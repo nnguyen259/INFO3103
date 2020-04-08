@@ -99,10 +99,7 @@ var app = new Vue({
     },
     
     createProject(){
-    	this.selectedProject.id = "";
-    	this.selectedProject.owner = "";
-    	this.selectedProject.name = "";
-    	this.selectedProject.isPublic = "";
+    	this.selectedProject = null;
     },
 	
 	selectProject(projectId){
