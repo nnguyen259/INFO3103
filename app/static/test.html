@@ -50,9 +50,7 @@
 				</div>
 			</div>
 			<div class="col mr-4" style="background-color:#ffffff">
-				<div v-if="creatingProject">
-					<button type="button">Create</button>
-				</div>
+				<button v-if="creatingProject" type="button">Create</button>
 				<div v-else>
 					{{selectedProject.id}}<br>
 					{{selectedProject.name}}
