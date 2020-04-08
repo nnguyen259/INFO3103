@@ -116,12 +116,7 @@ var app = new Vue({
     	document.body.style.backgroundColor= "Sandybrown";
     },
     
-    
-  },
-  //------- END methods --------
-  
-  computed: {
-	  getEligibleToBased(){
+    getEligibleToBased(){
     	var publicArray;
     	axios
     	.get(this.serviceURL+"/projects")
@@ -141,6 +136,9 @@ var app = new Vue({
     	});
     	
     },
-  }
+    
+    
+  },
+  //------- END methods --------
 
 });
