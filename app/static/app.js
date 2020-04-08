@@ -1,21 +1,3 @@
-//Gets the current height of the screen.
-var headerHeight = document.getElementById('header').clientHeight;
-var screenHeight = $(window).height() - headerHeight - 10; 
-var row = $('.row');
-
-// Assign that height to the .row
-row.css({
-    'height': screenHeight + 'px',
-});
-
-// This makes the div's height responsive when you resize the screen or the window of the browser.
-$(window).resize(function () {
-    screenHeight = $(window).height();
-    row.css({
-        'height': screenHeight + 'px',
-    });
-});
-
 // register modal component
  Vue.component("modal", {
    template: "#modal-template"
