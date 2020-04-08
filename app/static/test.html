@@ -63,8 +63,8 @@
 				            <div class="input-group-prepend">
 				              <span class="input-group-text  modal-prepend">Base Project</span>
 				            </div>
-				            <select class="custom-select col-8">
-				            	<option v-for="project in eligibleProjects" :value="project.id" v-model="selectedProject.id">{{project.name}}</option>
+				            <select class="custom-select col-8" v-model="selectedProject.id">
+				            	<option v-for="project in eligibleProjects" :value="project.id">{{project.name}}</option>
 				            </select>
 				          </div>
 				    	</div>
