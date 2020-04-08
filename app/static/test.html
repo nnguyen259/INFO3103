@@ -51,7 +51,9 @@
 			</div>
 			<div class="col mr-4" style="background-color:#ffffff">
 				<div v-if="creatingProject">
-					New Project Page
+					<div class="footer">
+						<button type="button">Create</button>
+					</div>
 				</div>
 				<div v-else>
 					{{selectedProject.id}}<br>
