@@ -131,8 +131,7 @@ var app = new Vue({
     	axios
     	.get(this.serviceURL+"/user/"+this.loggedIn+"/projects")
     	.then(response => {
-    		$.extend(publicArray, response.data.projects);
-    		//this.eligibleProjects = publicArray;
+    		this.eligibleProjects += response.data.projects;
     	});
     	
     },
