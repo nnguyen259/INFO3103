@@ -117,14 +117,14 @@ var app = new Vue({
     },
     
     getEligibleToBased(){
-    	var publicArray;
+    	var publicArray = "";
     	axios
     	.get(this.serviceURL+"/projects")
     	.then(response => {
     		publicArray = response.data.projects;
     	});
     	
-    	var userCreatedArray;
+    	var userCreatedArray = "";
     	axios
     	.get(this.serviceURL+"/user/"+this.loggedIn+"/projects")
     	.then(response => {
