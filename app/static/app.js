@@ -1,6 +1,6 @@
 //Gets the current height of the screen.
 var headerHeight = document.getElementById('header').clientHeight;
-var screenHeight = $(window).height() - headerHeight - buttonsHeight - 10; 
+var screenHeight = $(window).height() - headerHeight - 10; 
 var row = $('.row');
 
 // Assign that height to the .row
