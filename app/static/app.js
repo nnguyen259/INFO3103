@@ -126,17 +126,16 @@ var app = new Vue({
     	axios
     	.get(this.serviceURL+"/projects")
     	.then(response => {
-    		console.log(response);
     		publicArray = response.data.projects;
+    		console.log(publicArray);
     	});
-    	console.log("public array");
-    	console.log(publicArray);
     	
     	var userCreatedArray;
     	axios
     	.get(this.serviceURL+"/user/"+this.loggedIn+"/projects")
     	.then(response => {
     		userCreatedArray = response.data.projects;
+    		$.extend(publicArray, userCreatedArray);
     	});
     	
     	$.extend(publicArray, userCreatedArray);
