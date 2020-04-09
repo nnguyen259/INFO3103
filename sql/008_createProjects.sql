@@ -7,7 +7,7 @@ CREATE TABLE projects (
     PRIMARY KEY (id)
 );
 
-INSERT INTO projects(id, name, owner) VALUES (1, 'base', 'root');
+INSERT INTO projects(id, name, owner) VALUES (1, 'Base Game', 'root');
 
 DROP PROCEDURE IF EXISTS createProject;
 DROP PROCEDURE IF EXISTS editProject;
