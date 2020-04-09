@@ -154,9 +154,9 @@
 				</div>
 			</div>
 			<div v-else class="col mr-4 d-flex flex-column overlow-auto" style="background-color:#ffffff">
-					<div class="form-group col-8 pt-3 flex-shrink-1">
-					  <h4 v-if="editMagic">Edit Magic</h4>
-					  <h4 v-else>View Magic</h4>
+				  <h4 v-if="editMagic">Edit Magic</h4>
+				  <h4 v-else>View Magic</h4>
+					<div class="form-group col pt-3 flex-grow-1 overflow-auto">
 			          <div class="input-group mb-3">
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Name</span>
@@ -326,11 +326,11 @@
 			            <input v-if="editMagic && effect2.desc2 != null" class="col-2 form-control" v-model="selectedMagic.effect2.data2" number/>
 			            <input v-if="!editMagic && effect2.desc2 != null" class="col-2 form-control" v-model="selectedMagic.effect2.data2" readonly number/>
 			          </div>
-			          <button v-if="!editMagic && selectedProject.owner == loggedIn" type="button" class="btn btn-secondary" v-on:click="editMagic = true">Edit</button>
-			          <button v-if="!editMagic" type="button" class="btn btn-secondary" v-on:click="viewMagic=false">Close</button>
-			          <button v-if="editMagic" type="button" class="btn btn-secondary" v-on:click="turnOffEditMagic()">Close</button>
-			          <button v-if="editMagic" type="button" class="btn btn-success" v-on:click="submitMagic()">Submit</button>
 		          </div>
+		          <button v-if="!editMagic && selectedProject.owner == loggedIn" type="button" class="btn btn-secondary" v-on:click="editMagic = true">Edit</button>
+		          <button v-if="!editMagic" type="button" class="btn btn-secondary" v-on:click="viewMagic=false">Close</button>
+		          <button v-if="editMagic" type="button" class="btn btn-secondary" v-on:click="turnOffEditMagic()">Close</button>
+		          <button v-if="editMagic" type="button" class="btn btn-success" v-on:click="submitMagic()">Submit</button>
 			</div>
 		</div>
 		<div><i><center><font face="serif" color="DarkBlue">Made by: Nhan Nguyen and Tristan Carrier</font></center></i></div>
