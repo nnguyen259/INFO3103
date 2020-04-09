@@ -50,7 +50,7 @@
 					</div>
 				</div>
 			</div>
-			<div v-if="!editMagic" class="col mr-4 d-flex flex-column overflow-auto" style="background-color:#ffffff">
+			<div v-if="!viewMagic" class="col mr-4 d-flex flex-column overflow-auto" style="background-color:#ffffff">
 				<div v-if="creatingProject">
 					<div v-if="authenticated">
 						<div class="form-group col-6 pt-3">
@@ -154,7 +154,25 @@
 				</div>
 			</div>
 			<div v-else class="col mr-4 d-flex flex-column overlow-auto" style="background-color:#ffffff">
-				{{selectedMagic.name}}
+					<div class="form-group col-6 pt-3 flex-shrink-1">
+					  <h4 v-if="editMagic">Edit Magic</h4>
+					  <h4 v-else>View Magic</h4>
+			          <div class="input-group mb-3">
+			            <div class="input-group-prepend">
+			              <span class="input-group-text">Name</span>
+			            </div>
+			            <input v-if="editMode" class="col-8 form-control" type="text" v-model="selectedMagic.name" placeholder="Name" />
+			            <input v-else class="col-8 form-control" type="text" v-model="selectedMagic.name" placeholder="Name" readonly/>
+			          </div>
+			          
+			          <div class="input-group mb-3">
+			            <div class="input-group-prepend">
+			              <span class="input-group-text">Animation</span>
+			            </div>
+			            <input v-if="editMode" class="col-8 form-control" type="text" v-model="selectedMagic.animation" placeholder="Animation" />
+			            <input v-else class="col-8 form-control" type="text" v-model="selectedMagic.animation" placeholder="Animation" readonly/>
+			          </div>
+		          </div>
 			</div>
 		</div>
 		<div><i><center><font face="serif" color="DarkBlue">Made by: Nhan Nguyen and Tristan Carrier</font></center></i></div>

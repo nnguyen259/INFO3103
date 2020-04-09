@@ -26,6 +26,7 @@ var app = new Vue({
 		owner: ""
 	},
 	eligibleProjects:{},
+	viewMagic: false,
 	editMagic: false,
 	magicData: null,
 	selectedMagic:{}
@@ -92,6 +93,8 @@ var app = new Vue({
     	this.editMagic = false;
     	this.selectedMagic = {};
     	this.editMode = false;
+    	this.viewMagic = false;
+    	this.editMagic = false;
     	this.magicData = null;
     },
 	
