@@ -204,7 +204,7 @@ var app = new Vue({
     },
     
     submitMagic(){
-		axios.put(this.serviceURL+"/projects/"+this.selectedProject.id+"/magics/"+this.selectedMagic.id, {
+		axios.put(this.serviceURL+"/projects/"+this.selectedProject.id+"/magics/"+this.selectedMagic.magic_id, {
 			'sort_id': this.selectedMagic.sort_id,
 			'label': this.selectedMagic.label,
 			'name': this.selectedMagic.name,
