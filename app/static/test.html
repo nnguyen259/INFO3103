@@ -237,10 +237,10 @@
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Target Type</span>
 			            </div>
-			            <select v-if="editMagic" class="custom-select col-5" v-model="selectedMagic.targetType.id">
+			            <select v-if="editMagic" class="custom-select col-5" v-model="selectedMagic.target_type.id">
 			            	<option v-for="targetType in targetTypes" :value="targetType.id">{{targetType.name}}</option>
 			            </select>
-			            <select v-else class="custom-select col-5" v-model="selectedMagic.targetType.id" disabled>
+			            <select v-else class="custom-select col-5" v-model="selectedMagic.target_type.id" disabled>
 			            	<option v-for="targetType in targetTypes" :value="targetType.id">{{targetType.name}}</option>
 			            </select>
 			            <div class="input-group-prepend">
