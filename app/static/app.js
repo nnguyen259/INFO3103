@@ -210,7 +210,7 @@ var app = new Vue({
     },
     
     selectMagic(magicId){
-    	axios.get(this.serviceURL+"/projects"+this.slectedProject.id+"/magics"+magicId)
+    	axios.get(this.serviceURL+"/projects"+this.selectedProject.id+"/magics"+magicId)
     	.then(response => {
     		this.selectedMagic = response.data.magic[0];
     		this.editMagic = true;
