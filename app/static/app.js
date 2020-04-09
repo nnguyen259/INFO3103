@@ -23,10 +23,10 @@ var app = new Vue({
 		id: "",
 		isPublic: "",
 		name: "",
-		owner: "",
-		magicData: null
+		owner: ""
 	},
-	eligibleProjects:{}
+	eligibleProjects:{},
+	magicData: null
   },
   //------- lifecyle hooks --------
   mounted: function() {
@@ -202,7 +202,7 @@ var app = new Vue({
     	axios
     	.get(this.serviceURL+"/projects/"+this.selectedProject.id+"/magics")
     	.then(response => {
-    		this.selectedProject.magicData = response.data.magic;
+    		this.magicData = response.data.magic;
 //    		$('#magicTable').DataTable();
 //    		$('.dataTables_length').addClass('bs-select');
     	})
