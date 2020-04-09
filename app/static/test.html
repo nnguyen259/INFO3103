@@ -185,7 +185,10 @@
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Category</span>
 			            </div>
-			            <select class="custom-select col-8" v-model="selectedMagic.id">
+			            <select v-if="editMagic" class="custom-select col-8" v-model="selectedMagic.id">
+			            	<option v-for="category in categories" :value="category.id">{{category.name}}</option>
+			            </select>
+			            <select v-else class="custom-select col-8" v-model="selectedMagic.id" disabled>
 			            	<option v-for="category in categories" :value="category.id">{{category.name}}</option>
 			            </select>
 			          </div>
@@ -194,7 +197,10 @@
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Type</span>
 			            </div>
-			            <select class="custom-select col-8" v-model="selectedMagic.id">
+			            <select v-if="editMagic" class="custom-select col-8" v-model="selectedMagic.id">
+			            	<option v-for="type in types" :value="type.id">{{type.name}}</option>
+			            </select>
+			            <select v-else class="custom-select col-8" v-model="selectedMagic.id" disabled>
 			            	<option v-for="type in types" :value="type.id">{{type.name}}</option>
 			            </select>
 			          </div>
