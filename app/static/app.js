@@ -23,7 +23,8 @@ var app = new Vue({
 		id: "",
 		isPublic: "",
 		name: "",
-		owner: ""
+		owner: "",
+		magicData: null
 	},
 	eligibleProjects:{}
   },
@@ -195,6 +196,16 @@ var app = new Vue({
 			if(this.currentTab === "Shared") this.getShared();
 			this.createProject();
 		})
+    },
+    
+    getMagic(){
+    	axios
+    	.get(this.serviceURL+"/projects/"+this.selectedProject.id+"/magics")
+    	.then(response => {
+    		this.selectedProject.magicData = response.data.magic;
+    		$('#magicTable').DataTable();
+    		$('.dataTables_length').addClass('bs-select');
+    	})
     }
     
   },
