@@ -161,7 +161,7 @@
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Name</span>
 			            </div>
-			            <input v-if="editMode" class="col-8 form-control" type="text" v-model="selectedMagic.name" placeholder="Name" />
+			            <input v-if="editMagic" class="col-8 form-control" type="text" v-model="selectedMagic.name" placeholder="Name" />
 			            <input v-else class="col-8 form-control" type="text" v-model="selectedMagic.name" placeholder="Name" readonly/>
 			          </div>
 			          
@@ -169,8 +169,16 @@
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Animation</span>
 			            </div>
-			            <input v-if="editMode" class="col-8 form-control" type="text" v-model="selectedMagic.animation" placeholder="Animation" />
+			            <input v-if="editMagic" class="col-8 form-control" type="text" v-model="selectedMagic.animation" placeholder="Animation" />
 			            <input v-else class="col-8 form-control" type="text" v-model="selectedMagic.animation" placeholder="Animation" readonly/>
+			          </div>
+			          
+			          <div class="input-group mb-3">
+			            <div class="input-group-prepend">
+			              <span class="input-group-text">Animation</span>
+			            </div>
+			            <textarea v-if="editMagic" class="col-8 form-control" v-model="selectedMagic.description" placeholder="Description"></textarea>
+			            <textarea v-else class="col-8 form-control" v-model="selectedMagic.description" placeholder="Description" readonly></textarea>
 			          </div>
 		          </div>
 			</div>
