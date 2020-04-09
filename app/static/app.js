@@ -176,6 +176,17 @@ var app = new Vue({
     turnOffEdit(){
     	this.editMode = false;
     	this.selectProject(this.selectedProject.id);
+    },
+    
+    deleteProject(){
+    	axios
+    	.delete(this.serviceURL+"/projects/"+this.selectedProject.id)
+    	.then(response => {
+			if(this.currentTab === "Public") this.getPublic();
+			if(this.currentTab === "Private") this.getPrivate();
+			if(this.currentTab === "Shared") this.getShared();
+			this.createProject();
+		})
     }
     
   },
