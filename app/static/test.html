@@ -219,7 +219,7 @@
 			              <span class="input-group-text">Level Learn</span>
 			            </div>
 			            <input v-if="editMagic" type="text" class="col-2 form-control" v-model="selectedMagic.level_learn"/>
-			            <input v-else type="text" class="col-2 form-control" v-model="selectMagic.level_learn" readonly/>
+			            <input v-else class="col-2 form-control" v-model="selectedMagic.level_learn" readonly number/>
 			          </div>
 		          </div>
 			</div>
