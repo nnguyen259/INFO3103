@@ -302,7 +302,7 @@
 			              <span class="input-group-text">{{effect1.desc2}}</span>
 			            </div>
 			            <input v-if="editMagic && effect1.desc2 != null" class="col-2 form-control" v-model="selectedMagic.effect1.data2" number/>
-			            <input v-else class="col-2 form-control" v-model="selectedMagic.effect1.data2" readonly number/>
+			            <input v-if="!editMagic && effect1.desc2 != null" class="col-2 form-control" v-model="selectedMagic.effect1.data2" readonly number/>
 			          </div>
 		          </div>
 			</div>
