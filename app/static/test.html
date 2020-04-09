@@ -180,6 +180,15 @@
 			            <textarea v-if="editMagic" class="col-8 form-control" v-model="selectedMagic.description" placeholder="Description"></textarea>
 			            <textarea v-else class="col-8 form-control" v-model="selectedMagic.description" placeholder="Description" readonly></textarea>
 			          </div>
+			          
+			          <div class="input-group mb-3">
+			            <div class="input-group-prepend">
+			              <span class="input-group-text">Category</span>
+			            </div>
+			            <select class="custom-select col-8" v-model="selectedMagic.id">
+			            	<option v-for="category in categories" :value="category.id">{{category.name}}</option>
+			            </select>
+			          </div>
 		          </div>
 			</div>
 		</div>
