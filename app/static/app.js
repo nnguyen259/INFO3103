@@ -237,6 +237,7 @@ var app = new Vue({
     		this.selectedMagic = response.data.magic[0];
     		this.viewMagic = true;
     		this.getEffect1(response.data.magic[0].effect1.id);
+    		this.getEffect1(response.data.magic[0].effect2.id);
     	})
     },
     
@@ -286,6 +287,13 @@ var app = new Vue({
   		axios.get(this.serviceURL+"/effects/"+effectId)
   		.then(response => {
   			this.effect1 = response.data.effect[0];
+  		})
+  	},
+  	
+  	getEffect2(effectId){
+  		axios.get(this.serviceURL+"/effects/"+effectId)
+  		.then(response => {
+  			this.effect2 = response.data.effect[0];
   		})
   	}
     

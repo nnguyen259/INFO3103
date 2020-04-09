@@ -304,6 +304,28 @@
 			            <input v-if="editMagic && effect1.desc2 != null" class="col-2 form-control" v-model="selectedMagic.effect1.data2" number/>
 			            <input v-if="!editMagic && effect1.desc2 != null" class="col-2 form-control" v-model="selectedMagic.effect1.data2" readonly number/>
 			          </div>
+			          
+			          <div class="input-group mb-3">
+			            <div class="input-group-prepend">
+			              <span class="input-group-text">Effect 2</span>
+			            </div>
+			            <select v-if="editMagic" class="custom-select col-5" v-model="selectedMagic.effect2.id" v-on:change="getEffect1(selectedMagic.effect2.id)">
+			            	<option v-for="effect in effects" :value="effect.id">{{effect.name}}</option>
+			            </select>
+			            <select v-else class="custom-select col-5" v-model="selectedMagic.effect2.id" disabled>
+			            	<option v-for="effect in effects" :value="effect.id">{{effect.name}}</option>
+			            </select>
+			            <div class="input-group-prepend">
+			              <span class="input-group-text">{{effect2.desc1}}</span>
+			            </div>
+			            <input v-if="editMagic" class="col-2 form-control" v-model="selectedMagic.effect2.data1" number/>
+			            <input v-else class="col-2 form-control" v-model="selectedMagic.effect2.data1" readonly number/>
+			            <div v-if="effect2.desc2 != null" class="input-group-prepend">
+			              <span class="input-group-text">{{effect2.desc2}}</span>
+			            </div>
+			            <input v-if="editMagic && effect2.desc2 != null" class="col-2 form-control" v-model="selectedMagic.effect2.data2" number/>
+			            <input v-if="!editMagic && effect2.desc2 != null" class="col-2 form-control" v-model="selectedMagic.effect2.data2" readonly number/>
+			          </div>
 		          </div>
 			</div>
 		</div>
