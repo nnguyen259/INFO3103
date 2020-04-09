@@ -154,7 +154,7 @@
 				</div>
 			</div>
 			<div v-else class="col mr-4 d-flex flex-column overlow-auto" style="background-color:#ffffff">
-					<div class="form-group col-6 pt-3 flex-shrink-1">
+					<div class="form-group col-10 pt-3 flex-shrink-1">
 					  <h4 v-if="editMagic">Edit Magic</h4>
 					  <h4 v-else>View Magic</h4>
 			          <div class="input-group mb-3">
@@ -253,6 +253,14 @@
 			            </div>
 			            <input v-if="editMagic" class="col-2 form-control" v-model="selectedMagic.target_size" number/>
 			            <input v-else class="col-2 form-control" v-model="selectedMagic.target_size" readonly number/>
+			          </div>
+			          
+			          <div class="input-group mb-3">
+			            <div class="input-group-prepend">
+			              <span class="input-group-text">Unbalance Bonus</span>
+			            </div>
+			            <input v-if="editMagic" class="col-8 form-control" v-model="selectedMagic.unbalance" number/>
+			            <input v-else class="col-8 form-control " v-model="selectedMagic.unbalance" readonly number/>
 			          </div>
 		          </div>
 			</div>
