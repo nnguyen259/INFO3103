@@ -132,7 +132,7 @@ var app = new Vue({
     },
     
     submitProject(){
-    	if(!editMode){
+    	if(!this.editMode){
     		axios
     		.post(this.serviceURL+"/projects", {
     			'Name': this.selectedProject.name,
