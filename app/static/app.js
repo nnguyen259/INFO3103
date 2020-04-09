@@ -104,6 +104,7 @@ var app = new Vue({
 				this.selectedProject = JSON.parse(JSON.stringify(this.projectsData[x]));
 				this.creatingProject = false;
 				this.magicData = null;
+				this.viewMagic = false;
 			}
 		}
 	},
