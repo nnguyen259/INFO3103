@@ -147,13 +147,15 @@
 		          			<td>{{magic.magic_id}}</td>
 		          			<td>{{magic.name}}</td>
 		          			<td>{{magic.description}}</td>
-		          			<td v-if="selectedProject.owner == loggedIn"><button type="button" class="btn btn-secondary">Edit</button></td>
+		          			<td v-if="selectedProject.owner == loggedIn"><button type="button" class="btn btn-secondary" v-on:click="selectMagic(magic.id)">View</button></td>
 		          		</tr>
 			          </table>
 			    	</div>
 				</div>
 			</div>
-			<div v-else></div>
+			<div v-else class="col mr-4 d-flex flex-column overlow-auto" style="background-color:#ffffff">
+				{{selectedMagic.name}}
+			</div>
 		</div>
 		<div>Made by Nhan Nguyen</div>
 	</div>

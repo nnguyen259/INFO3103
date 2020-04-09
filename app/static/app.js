@@ -207,6 +207,14 @@ var app = new Vue({
     	.then(response => {
     		this.magicData = response.data.magic;
     	})
+    },
+    
+    selectMagic(magicId){
+    	for (x in this.magicData){
+			if (this.magicData[x].magic_id == magicId) {
+				this.selectedMagic = JSON.parse(JSON.stringify(this.magicData[x]));
+			}
+		}
     }
     
   },
