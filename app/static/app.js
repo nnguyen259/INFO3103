@@ -210,11 +210,11 @@ var app = new Vue({
     },
     
     selectMagic(magicId){
-    	for (x in this.magicData){
-			if (this.magicData[x].magic_id == magicId) {
-				this.selectedMagic = JSON.parse(JSON.stringify(this.magicData[x]));
-			}
-		}
+    	axios.get(this.serviceURL+"/projects"+this.slectedProject.id+"/magics"+magicId)
+    	.then(response => {
+    		this.selectedMagic = response.data.magic[0];
+    		this.editMagic = true;
+    	})
     }
     
   },
