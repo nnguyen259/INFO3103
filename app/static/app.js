@@ -147,7 +147,7 @@ var app = new Vue({
     			return axios.get(response.data.uri);
     		})
     		.then(response => {
-    			this.selectedProject = JSON.parse(JSON.stringify(response.data.project));
+    			this.selectedProject = JSON.parse(JSON.stringify(response.data.project[0]));
     			this.creatingProject = false;
     		})
     	}
