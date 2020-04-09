@@ -81,7 +81,7 @@ var app = new Vue({
     },
     
     createProject(){
-    	this.selectedProject = {id: 1};
+    	this.selectedProject = {id: 1, isPublic: true};
     	this.creatingProject = true;
     	this.getEligibleToBased();
     },
