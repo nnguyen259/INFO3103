@@ -36,7 +36,7 @@
 				<h3>Projects List</h3>
 				<div v-if="authenticated" class="btn-group d-flex" role="group">
 					<button type="button" class="btn btn-success w-100" v-on:click="getPublic()">Public</button>
-					<button type="button" class="btn btn-info w-100" v-on:click="getPrivate()">Private</button>
+					<button type="button" class="btn btn-info w-100" v-on:click="getPrivate()">Created</button>
 					<!--  <button type="button" class="btn btn-warning w-100" v-on:click="getShared()">Shared</button>-->
 				</div><br>
 				<button type="button" class="btn btn-secondary" v-if="authenticated" data-toggle="list" v-on:click="createProject()"><b>Create New Project</b></button>
