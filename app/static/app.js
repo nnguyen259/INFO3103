@@ -34,7 +34,8 @@ var app = new Vue({
 	characters: null,
 	effects: null,
 	targetTypes: null,
-	types: null
+	types: null,
+	elements: null
   },
   //------- lifecyle hooks --------
   mounted: function() {
@@ -57,6 +58,7 @@ var app = new Vue({
     this.getCharacters();
     this.getTargetTypes();
     this.getEffects();
+    this.getElements();
   },
   //------- methods --------
   methods: {
@@ -267,6 +269,13 @@ var app = new Vue({
   		axios.get(this.serviceURL+"/effects")
   		.then(response => {
   			this.effects = response.data.effects;
+  		})
+  	},
+  	
+  	getElements(){
+  		axios.get(this.serviceURL+"/elements")
+  		.then(response => {
+  			this.elements = response.data.elements;
   		})
   	}
     
