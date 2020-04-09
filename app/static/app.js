@@ -154,7 +154,7 @@ var app = new Vue({
     	}
     },
     
-    turnOnEidt(){
+    turnOnEdit(){
     	this.editMode = true;
     }
     
