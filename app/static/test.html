@@ -140,12 +140,13 @@
 		          			<th class="th-sm">ID</th>
 		          			<th class="th-sm">Name</th>
 		          			<th class="th-sm">Description</th>
+		          			<th class="th-sm"></th>
 		          		</tr>
 		          		<tr v-for="magic in magicData">
 		          			<td>{{magic.magic_id}}</td>
 		          			<td>{{magic.name}}</td>
 		          			<td>{{magic.description}}</td>
-		          			<td v-if="selectedProject.owner == loggedIn"><button type="button">Edit</button></td>
+		          			<td v-if="selectedProject.owner == loggedIn"><button type="button" class="btn btn-secondary">Edit</button></td>
 		          		</tr>
 			          </table>
 			    	</div>
