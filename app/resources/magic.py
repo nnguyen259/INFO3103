@@ -118,7 +118,7 @@ class Magic(Resource):
                        newCastDelay, newRecoveryDelay, newCost,
                        newUnbalance, newLevelLearn)
         uri = 'https://'+settings.APP_HOST+':'+str(settings.APP_PORT)
-        uri = uri+'/projects'+'/'+ project_id+'/'+magic_id
+        uri = uri+'/projects'+'/'+ project_id+'/magics/'+magic_id
         return make_response(jsonify( { "uri" : uri } ), 200)
     
 class MagicList(Resource):
