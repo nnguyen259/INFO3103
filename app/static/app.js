@@ -140,9 +140,9 @@ var app = new Vue({
     			'Visibility': this.selectedProject.isPublic
     		})
     		.then(response => {
-    			if(this.currentTab === "Public") getPublic();
-    			if(this.currentTab === "Private") getPrivate();
-    			if(this.currentTab === "Shared") getShared();
+    			if(this.currentTab === "Public") this.getPublic();
+    			if(this.currentTab === "Private") this.getPrivate();
+    			if(this.currentTab === "Shared") this.getShared();
     			this.creatingProject = false;
     			return axios.get(response.data.uri);
     		})
