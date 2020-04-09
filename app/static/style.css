@@ -8,9 +8,5 @@
 }
 
 html, body {
-	height: 100%;
-}
-
-#left {
-	overflow-y: scroll;
+	height: 100vh;
 }
