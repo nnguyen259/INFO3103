@@ -203,8 +203,8 @@ var app = new Vue({
     	.get(this.serviceURL+"/projects/"+this.selectedProject.id+"/magics")
     	.then(response => {
     		this.selectedProject.magicData = response.data.magic;
-    		$('#magicTable').DataTable();
-    		$('.dataTables_length').addClass('bs-select');
+//    		$('#magicTable').DataTable();
+//    		$('.dataTables_length').addClass('bs-select');
     	})
     }
     
