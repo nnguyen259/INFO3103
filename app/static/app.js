@@ -152,6 +152,10 @@ var app = new Vue({
     			this.creatingProject = false;
     		})
     	}
+    },
+    
+    turnOnEidt(){
+    	this.editMode = true;
     }
     
   },
