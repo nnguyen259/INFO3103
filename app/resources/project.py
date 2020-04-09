@@ -65,11 +65,11 @@ class ProjectList(Resource):
 		else: baseId = request.json['Base']
 
 		name = request.json['Name']
-		publicStatus = request.json['Visibility'] == 'true'
-		print(request.json['Visibility'])
-		print(publicStatus)
+# 		publicStatus = request.json['Visibility'] == 'true'
+# 		print(request.json['Visibility'])
+# 		print(publicStatus)
 
-		row = postToDb('createProject', name, session['username'], publicStatus)
+		row = postToDb('createProject', name, session['username'], request.json['Visibility'])
 		
 		baseProject = getFromDb('getProject', baseId)
 		if not baseProject:
