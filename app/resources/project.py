@@ -66,6 +66,7 @@ class ProjectList(Resource):
 
 		name = request.json['Name']
 		publicStatus = request.json['Visibility'] == 'true'
+		print(request.json['Visibility'])
 		print(publicStatus)
 
 		row = postToDb('createProject', name, session['username'], publicStatus)
