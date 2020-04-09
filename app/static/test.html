@@ -134,6 +134,7 @@
 			          <button v-if="editMode" type="button" class="btn btn-success" v-on:click="submitProject()">Submit</button>
 			          
 			    	</div>
+			    	<div v-for="magic in selectedProject.magicData">{{magic.name}}</div>
 			          <table id="magicTable" class="table table striped table-bordered table-sm">
 			          	<thead>
 			          		<tr>
