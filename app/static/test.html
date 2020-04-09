@@ -318,8 +318,8 @@
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">{{effect2.desc1}}</span>
 			            </div>
-			            <input v-if="editMagic" class="col-2 form-control" v-model="selectedMagic.effect2.data1" number/>
-			            <input v-else class="col-2 form-control" v-model="selectedMagic.effect2.data1" readonly number/>
+			            <input v-if="editMagic && effect2.desc1 != null" class="col-2 form-control" v-model="selectedMagic.effect2.data1" number/>
+			            <input v-if="!editMagic && effect2.desc1 != null" class="col-2 form-control" v-model="selectedMagic.effect2.data1" readonly number/>
 			            <div v-if="effect2.desc2 != null" class="input-group-prepend">
 			              <span class="input-group-text">{{effect2.desc2}}</span>
 			            </div>
