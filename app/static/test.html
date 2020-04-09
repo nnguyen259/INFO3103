@@ -56,13 +56,13 @@
 						  <h4>Create Project</h4>
 				          <div class="input-group mb-3">
 				            <div class="input-group-prepend">
-				              <span class="input-group-text  modal-prepend">Project Name</span>
+				              <span class="input-group-text">Project Name</span>
 				            </div>
-				            <input class="col-8 form-control" type="text" id="schoolName" v-model="selectedProject.name" placeholder="Project Name" />
+				            <input class="col-8 form-control" type="text" v-model="selectedProject.name" placeholder="Project Name" />
 				          </div>
 				          <div class="input-group mb-3">
 				            <div class="input-group-prepend">
-				              <span class="input-group-text  modal-prepend">Base Project</span>
+				              <span class="input-group-text">Base Project</span>
 				            </div>
 				            <select class="custom-select col-8" v-model="selectedProject.id">
 				            	<option v-for="project in eligibleProjects" :value="project.id">{{project.name}}</option>
@@ -70,7 +70,7 @@
 				          </div>
 				          <div class="input-group mb-3">
 				            <div class="input-group-prepend">
-				              <span class="input-group-text  modal-prepend mr-4">Public</span>
+				              <span class="input-group-text mr-4">Public</span>
 				            </div>
 				            <div class="form-check form-check-inline">
 				            	<input class="form-check-input" type="radio" value="1" name="projectPublic" v-model="selectedProject.isPublic" id="publicYes"> 
@@ -88,24 +88,17 @@
 				</div>
 				<div v-else>
 					<div class="form-group col-6 pt-3">
-					  <h4>Create Project</h4>
+					  <h4>View/Edit Project</h4>
 			          <div class="input-group mb-3">
 			            <div class="input-group-prepend">
-			              <span class="input-group-text  modal-prepend">Project Name</span>
+			              <span class="input-group-text">Project Name</span>
 			            </div>
-			            <input class="col-8 form-control" type="text" id="schoolName" v-model="selectedProject.name" placeholder="Project Name" />
+			            <input v-if="editMode" class="col-8 form-control" type="text" v-model="selectedProject.name" placeholder="Project Name" />
+			            <input v-else class="col-8 form-control" type="text" v-model="selectedProject.name" placeholder="Project Name" readonly/>
 			          </div>
 			          <div class="input-group mb-3">
 			            <div class="input-group-prepend">
-			              <span class="input-group-text  modal-prepend">Base Project</span>
-			            </div>
-			            <select class="custom-select col-8" v-model="selectedProject.id">
-			            	<option v-for="project in eligibleProjects" :value="project.id">{{project.name}}</option>
-			            </select>
-			          </div>
-			          <div class="input-group mb-3">
-			            <div class="input-group-prepend">
-			              <span class="input-group-text  modal-prepend mr-4">Public</span>
+			              <span class="input-group-text mr-4">Public</span>
 			            </div>
 			            <div class="form-check form-check-inline">
 			            	<input class="form-check-input" type="radio" value="1" name="projectPublic" v-model="selectedProject.isPublic" id="publicYes"> 
