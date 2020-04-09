@@ -1,0 +1,224 @@
+#%RAML 1.0
+---
+title: Game Skill Editor Hub API
+baseUri: https://info3103.cs.unb.ca:39144
+version: v1
+
+types:
+  project: !include project.schema
+  character: !include entity.schema
+  effect: !include entity.schema
+  type: !include entity.schema
+  category: !include entity.schema
+  targetType: !include entity.schema
+  element: !include entity.schema
+  magic-simple: !include magic-simple.schema
+  magic-full: !include magic-full.schema
+
+resourceTypes:
+  readOnlyCollection:
+    description: Collection of available read-only <<resourcePathName>> in the hub.
+    get:
+      description: Get a list of <<resourcePathName>>.
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                <<exampleCollection>>
+  read-only-collection-item:
+    description: Entity representing a read-only <<resourcePathName|!singularize>>
+    get:
+      description: |
+        Get the <<resourcePathName|!singularize>>
+        with <<resourcePathName|!singularize>>Id =
+        {<<resourcePathName|!singularize>>Id}
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                <<exampleItem>>
+        404:
+          body:
+            application/json:
+              example: |
+                {"message": "<<resourcePathName|!singularize>> not found" }
+  collection:
+    description: Collection of available <<resourcePathName>> in the hub.
+    get:
+      description: Get a list of <<resourcePathName>>.
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                <<exampleCollection>>
+    post:
+      description: |
+        Add a new <<resourcePathName|!singularize>> to the hub.
+      queryParameters:
+        access_token:
+          description: "The access token provided by the authentication application"
+          example: AABBCCDD
+          required: true
+          type: string
+      body:
+        application/json:
+          type: <<resourcePathName|!singularize>>
+          example: |
+            <<exampleItem>>
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                { "message": "The <<resourcePathName|!singularize>> has been properly entered" }
+		403:
+          body:
+            application/json:
+              example: |
+                { "message": "User is not authorized" }
+  collection-item:
+    description: Entity representing a <<resourcePathName|!singularize>>
+    get:
+      description: |
+        Get the <<resourcePathName|!singularize>>
+        with <<resourcePathName|!singularize>>Id =
+        {<<resourcePathName|!singularize>>Id}
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                <<exampleItem>>
+        404:
+          body:
+            application/json:
+              example: |
+                {"message": "<<resourcePathName|!singularize>> not found" }
+	put:
+	  description: |
+        Update <<resourcePathName|!singularize>> in the hub with new value.
+      queryParameters:
+        access_token:
+          description: "The access token provided by the authentication application"
+          example: AABBCCDD
+          required: true
+          type: string
+      body:
+        application/json:
+          type: <<resourcePathName|!singularize>>
+          example: |
+            <<exampleItem>>
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                { "message": "The <<resourcePathName|!singularize>> has been updated" }
+		404:
+          body:
+            application/json:
+              example: |
+                { "message": "<<resourcePathName|!singularize>> not found" }
+		403:
+          body:
+            application/json:
+              example: |
+                { "message": "User is not authorized" }
+	delete:
+      description: |
+        Delete a <<resourcePathName|!singularize>>
+        with <<resourcePathName|!singularize>>Id =
+        {<<resourcePathName|!singularize>>Id}
+      responses:
+        204:
+          body:
+            application/json:
+              example: |
+                {"message": "<<resourcePathName|!singularize>> has been deleted" }
+        404:
+          body:
+            application/json:
+              example: |
+                {"message": "<<resourcePathName|!singularize>> not found" }
+		403:
+          body:
+            application/json:
+              example: |
+                { "message": "User is not authorized" }
+
+/user:
+	/{username}/projects:
+		type:
+			readOnlyCollection:
+				exampleCollection: !include include-entities.sample
+
+/projects:
+  type:
+    collection:
+	  exampleCollection: !include include-projects.sample
+	  exampleItem: !include include-project.sample
+  /{projectId}:
+    type:
+	  collection-item:
+		exampleItem: !include include-project.sample
+	/magics:
+		type:
+		  collection:
+			exampleCollection: !include include-magic-simple.sample
+			exampleItem: !include include-magic-full.sample
+		/{magicId}:
+		  type:
+			collection-item:
+			  exampleItem: !include include-magic-full.sample
+
+/categories:
+  type:
+    readOnlyCollection:
+	  exampleCollection: !include include-entities.sample
+  /{categoryId}:
+    type:
+	  read-only-collection-item:
+		exampleItem: !include include-entity.sample
+/elements:
+  type:
+    readOnlyCollection:
+	  exampleCollection: !include include-entities.sample
+  /{elementId}:
+    type:
+	  read-only-collection-item:
+		exampleItem: !include include-entity.sample
+/types:
+  type:
+    readOnlyCollection:
+	  exampleCollection: !include include-entities.sample
+  /{typeId}:
+    type:
+	  read-only-collection-item:
+		exampleItem: !include include-entity.sample
+/targetTypes:
+  type:
+    readOnlyCollection:
+	  exampleCollection: !include include-entities.sample
+  /{targetTypeId}:
+    type:
+	  read-only-collection-item:
+		exampleItem: !include include-entity.sample
+/effects:
+  type:
+    readOnlyCollection:
+	  exampleCollection: !include include-entities.sample
+  /{effectId}:
+    type:
+	  read-only-collection-item:
+		exampleItem: !include include-entity.sample
+/charcters:
+  type:
+    readOnlyCollection:
+	  exampleCollection: !include include-entities.sample
+  /{charcterId}:
+    type:
+	  read-only-collection-item:
+		exampleItem: !include include-entity.sample

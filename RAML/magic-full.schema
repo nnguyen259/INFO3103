@@ -1,0 +1,88 @@
+{
+	"type": "object",
+	"$schema": "http://json-schema.org/draft-03/schema",
+	"required":false,
+	"properties":{
+		"id":{
+			"type": "integer",
+			"required": true
+		},
+		"magic_id":{
+			"type": "integer",
+			"required": true
+		},
+		"project_id":{
+			"type": "integer",
+			"required": true
+		},
+		"cost":{
+			"type": "integer",
+			"required": true
+		},
+		"cast_delay":{
+			"type": "integer",
+			"required": true
+		},
+		"recovery_delay":{
+			"type": "integer",
+			"required": true
+		},
+		"unbalance":{
+			"type": "integer",
+			"required": true
+		},
+		"level_learn":{
+			"type": "integer",
+			"required": true
+		},
+		"target_type":{
+			"$ref": "include-simple-entity.schema"
+		},
+		"target_range":{
+			"type": "integer",
+			"required": true
+		},
+		"target_size":{
+			"type": "integer",
+			"required": true
+		},
+		"name":{
+			"type": "string",
+			"required": true
+		},
+		"description":{
+			"type": "string",
+			"required": true
+		},
+		"animation":{
+			"type": "string",
+			"required": true
+		},
+		"label":{
+			"type": "string",
+			"required": true
+		},
+		"element":{
+			"$ref": "include-simple-entity.schema"
+		},
+		"effect1":{
+			"$ref": "include-simple-entity.schema"
+		},
+		"effect2":{
+			"$ref": "include-simple-entity.schema"
+		},
+		"chararacter":{
+			"$ref": "include-simple-entity.schema"
+		},
+		"type":{
+			"$ref": "include-simple-entity.schema"
+		},
+		"category":{
+			"$ref": "include-simple-entity.schema"
+		},
+		"locked":{
+			"type": "boolean",
+			"required": true
+		}
+	}
+}

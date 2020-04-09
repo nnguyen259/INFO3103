@@ -1,0 +1,16 @@
+[
+	{
+      "description": "[#34IAttack - Area (XL) - Burn (20%)]\nTwo flames collide, causing a great explosion.",
+      "id": 846,
+      "magic_id": 54,
+      "name": "Flare Bomb",
+      "project_id": 6
+    },
+    {
+      "description": "[#34IAttack - Area (S) - Burn (50%)]\nSummons the flames of Gehenna to reduce enemies to ash.",
+      "id": 847,
+      "magic_id": 55,
+      "name": "Purgatorial Flame",
+      "project_id": 6
+    }
+]

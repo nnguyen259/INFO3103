@@ -1,0 +1,141 @@
+{
+      "animation": "AniBtlCraft01",
+      "cast_delay": 0,
+      "category": {
+        "id": 30,
+        "name": "Craft"
+      },
+      "character": {
+        "id": 65533,
+        "name": "Everyone"
+      },
+      "cost": 30,
+      "description": "[Attack (Set) - Line (S) - SPD-25%]\n(Class C) Releases a bird-shaped shock wave.",
+      "effect1": {
+        "data1": 110,
+        "data2": 0,
+        "desc1": "Damage Modifier",
+        "desc2": null,
+        "id": 1,
+        "name": "Deal Physical Damage"
+      },
+      "effect2": {
+        "data1": 25,
+        "data2": 0,
+        "desc1": "Amount (%)",
+        "desc2": "(Optional) Duration",
+        "id": 34,
+        "name": "Reduce Speed"
+      },
+      "element": {
+        "id": 4,
+        "name": "Wind"
+      },
+      "id": 1792,
+      "label": "EB",
+      "level_learn": 0,
+      "locked": 1,
+      "magic_id": 901,
+      "name": "Soaring Bird",
+      "project": {
+        "id": 7,
+        "isPublic": 0,
+        "name": "Random Project 200",
+        "owner": "nnguyen1"
+      },
+      "recovery_delay": 25,
+      "sort_id": 1,
+      "target_range": 100,
+      "target_size": 2,
+      "target_type": {
+        "id": 11,
+        "name": "Set Line"
+      },
+      "type": {
+        "id": 1,
+        "name": "Attacking"
+      },
+      "unbalance": 255
+    }
+  ]
+}
+[nnguyen1@info3103 sql]$ curl -i -b cookie-jar -X PUT -H "Content-Type: application/json" -d '{"name": "Random Project ##", "element_id":4}' -k https://info3103.cs.unb.ca:39144/projects/5/magics/901
+HTTP/1.0 200 OK
+Content-Type: application/json
+Set-Cookie: peanutButter=0c6be310-9657-4476-85b8-d91670f0a19e; Domain=info3103.cs.unb.ca; Expires=Wed, 15-Apr-2020 22:53:59 GMT; HttpOnly; Path=/
+Content-Length: 62
+Server: Werkzeug/0.12.2 Python/3.6.8
+Date: Sun, 15 Mar 2020 22:53:59 GMT
+
+{
+  "uri": "http://info3103.cs.unb.ca:39144/projects/5/901"
+}
+[nnguyen1@info3103 sql]$ curl -i -b cookie-jar -X GET -k https://info3103.cs.unb.ca:39144/projects/5/magics/901
+HTTP/1.0 200 OK
+Content-Type: application/json
+Set-Cookie: peanutButter=0c6be310-9657-4476-85b8-d91670f0a19e; Domain=info3103.cs.unb.ca; Expires=Wed, 15-Apr-2020 22:54:04 GMT; HttpOnly; Path=/
+Content-Length: 1388
+Server: Werkzeug/0.12.2 Python/3.6.8
+Date: Sun, 15 Mar 2020 22:54:04 GMT
+
+{
+  "magic": [
+    {
+      "animation": "AniBtlCraft01",
+      "cast_delay": 0,
+      "category": {
+        "id": 30,
+        "name": "Craft"
+      },
+      "character": {
+        "id": 65533,
+        "name": "Everyone"
+      },
+      "cost": 30,
+      "description": "[Attack (Set) - Line (S) - SPD-25%]\n(Class C) Releases a bird-shaped shock wave.",
+      "effect1": {
+        "data1": 110,
+        "data2": 0,
+        "desc1": "Damage Modifier",
+        "desc2": null,
+        "id": 1,
+        "name": "Deal Physical Damage"
+      },
+      "effect2": {
+        "data1": 25,
+        "data2": 0,
+        "desc1": "Amount (%)",
+        "desc2": "(Optional) Duration",
+        "id": 34,
+        "name": "Reduce Speed"
+      },
+      "element": {
+        "id": 4,
+        "name": "Wind"
+      },
+      "id": 814,
+      "label": "EB",
+      "level_learn": 0,
+      "locked": 1,
+      "magic_id": 901,
+      "name": "Random Project ##",
+      "project": {
+        "id": 5,
+        "isPublic": 0,
+        "name": "Random Project ##",
+        "owner": "nnguyen1"
+      },
+      "recovery_delay": 25,
+      "sort_id": 1,
+      "target_range": 100,
+      "target_size": 2,
+      "target_type": {
+        "id": 11,
+        "name": "Set Line"
+      },
+      "type": {
+        "id": 1,
+        "name": "Attacking"
+      },
+      "unbalance": 255
+    }
