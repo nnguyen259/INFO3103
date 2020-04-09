@@ -98,6 +98,7 @@ var app = new Vue({
 	},
 	
 	getPublic() {
+	  this.currentTab = "Public";
       axios
       .get(this.serviceURL+"/projects")
       .then(response => {
@@ -112,8 +113,13 @@ var app = new Vue({
     },
     
     getPrivate() {
-    	this.projectsData = null;
-    	document.body.style.backgroundColor= "lightblue";
+    	this.currentTab = "Private";
+    	axios
+    	.get(this.serviceURL+"/user/"+this.loggedIn+"/projects")
+    	.then(response => {
+    		this.projectsData = response.data.projects;
+    		document.body.style.backgroundColor= "lightblue";
+    	})
     },
     
     getShared() {
