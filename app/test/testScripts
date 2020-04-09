@@ -1,0 +1,138 @@
+#!/bin/bash
+
+# View Immutable Objects
+# Expected: 200 OK
+# Expected Result: Arrays of Objects
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/categories
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/characters
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/types
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/targetTypes
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/effects
+
+# Try to Delete/Post
+# Expected: 405 Not Allowed
+curl -i -H "Content-Type: application/json" -X POST -d '{"Name": "bogus"}' -c cookie-jar -k https://info3103.cs.unb.ca:39144/categories
+curl -i -X DELETE -k https://info3103.cs.unb.ca:39144/categories
+
+# View Immutable Single Object
+# Expected: 200 OK
+# Expected Result: The Object with ID
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/categories/1
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/characters/1
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/types/1
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/targetTypes/1
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/effects/1
+
+# Try to Delete/Put
+# Expected: 405 Not Allowed
+curl -i -H "Content-Type: application/json" -X POST -d '{"Name": "bogus"}' -c cookie-jar -k https://info3103.cs.unb.ca:39144/categories/1
+curl -i -X DELETE -k https://info3103.cs.unb.ca:39144/categories/1
+
+# Test Viewing All Public Projects
+# Expected: 200 OK
+# Expected Results: Projects 1 and 3
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/projects
+
+# Test Viewing Single Public Project
+# Expected: 200 OK
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/projects/1
+
+# Test Project Data List
+# Expected: 200 OK
+# Expected Results: Arrays of "Magic"
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/projects/1/magics
+
+# Test Viewing "Magic" Details
+# Expected: 200 OK
+# Expected Results: All of "Magic" Attribute with cross references to categories/elements/types/etc...
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/projects/1/magics/901
+
+# Test Viewing Private Projects Without Permission
+# Expected: 403 FORBIDDEN
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/projects/2
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/projects/2/magics
+curl -i -X GET -k https://info3103.cs.unb.ca:39144/projects/2/magics/901
+
+# Test Creating New Project/Deleting Existing Project Without Logging In
+# Expected: 403 FORBIDDEN
+curl -i -H "Content-Type: application/json" -X POST -d '{"Name": "Project Name", "Visibility": "True"}' -c cookie-jar -k https://info3103.cs.unb.ca:39144/projects
+curl -i -X DELETE -k https://info3103.cs.unb.ca:39144/projects/1
+
+# Test Failed Sign In
+# Expected: 403 Access Denied
+curl -i -H "Content-Type: application/json" -X POST -d '{"username": "bogus", "password": "huh?"}' -c cookie-jar -k https://info3103.cs.unb.ca:39144/signin
+
+# Test Get Login Status
+# Expected: 403 Failed
+curl -i -X GET -c cookie-jar -k https://info3103.cs.unb.ca:39144/signin
+
+# Test Login Successfully
+# Expected: 200 OK
+curl -i -H "Content-Type: application/json" -X POST -d '{"username": "<real id>", "password": "<real password>"}' -c cookie-jar -k https://info3103.cs.unb.ca:39144/signin
+
+# Test Viewing Private Projects Without Permission
+# Expected: 403 FORBIDDEN
+curl -i -c cookie-jar -X GET -k https://info3103.cs.unb.ca:39144/projects/2
+curl -i -c cookie-jar -X GET -k https://info3103.cs.unb.ca:39144/projects/2/magics
+curl -i -c cookie-jar -X GET -k https://info3103.cs.unb.ca:39144/projects/2/magics/901
+
+# Test Create Public Project
+# Without Specifying A Base Project, The New Project is Based on Project 1 ("base")
+# Expected: 201 CREATED
+# Return URI: /projects/5
+curl -i -H "Content-Type: application/json" -X POST -d '{"Name": "Hello World", "Visibility": "True"}' -c cookie-jar -k https://info3103.cs.unb.ca:39144/projects
+#Expected: 200 OK
+#Expected Result: Project 5 is in the list
+curl -i -H "Content-Type: application/json" -X GET -c cookie-jar -k https://info3103.cs.unb.ca:39144/projects
+# Project Data and "Magic" are visible
+curl -i -H "Content-Type: application/json" -X GET -c cookie-jar -k https://info3103.cs.unb.ca:39144/projects/5
+curl -i -H "Content-Type: application/json" -X GET -c cookie-jar -k https://info3103.cs.unb.ca:39144/projects/5/magics
+
+# Test Editing Created Project
+# Fields not specified in JSON will be kept the same
+# Expected: 200 OK
+# Return URI: /projects/5
+curl -i -b cookie-jar -X PUT -H "Content-Type: application/json" -d '{"Name": "Random Project ##"}' -k https://info3103.cs.unb.ca:39144/projects/5
+# Make it Private
+curl -i -b cookie-jar -X PUT -H "Content-Type: application/json" -d '{"Visibility": "False"}' -k https://info3103.cs.unb.ca:39144/projects/5
+# Check the Project List to confirm the project is no longer listed
+curl -i -b cookie-jar -X GET -k https://info3103.cs.unb.ca:39144/projects
+
+# Test Editing "Magic" in the Project
+# Fields not specified in JSON will be kept the same
+# Expected: 200 OK
+# Return URI: /projects/5/magics/901
+curl -i -b cookie-jar -X PUT -H "Content-Type: application/json" -d '{"name": "New Horizon", "description":"Remove Something", "element_id":4}' -k https://info3103.cs.unb.ca:39144/projects/5/magics/901
+
+# Test Create Project Based Off A Specific Project
+# Without Specifying A Base Project, The New Project is Based on Project 1 ("base")
+# Expected: 201 CREATED
+# Return URI: /projects/6
+curl -i -H "Content-Type: application/json" -X POST -d '{"Name": "Hello World", "Visibility": "True", "Base":5}' -c cookie-jar -k https://info3103.cs.unb.ca:39144/projects
+# Confirm it's listed publicly
+curl -i -b cookie-jar -X GET -k https://info3103.cs.unb.ca:39144/projects
+# Confirm the changed magic is identical
+curl -i -b cookie-jar -X GET -k https://info3103.cs.unb.ca:39144/projects/6/magics/901
+
+# Test View All Projects You Created
+# Expected: 200 OK
+# Expected Results: Both project 5 and 6, even though 5 is private
+curl -i -b cookie-jar -X GET -k https://info3103.cs.unb.ca:39144/user/<login ID>/projects
+
+# Test Delete Project
+# Expected: 200 OK
+# Return URI: /projects
+curl -i -b cookie-jar -X DELETE -k https://info3103.cs.unb.ca:39144/projects/6
+# Confirm it's no longer listed:
+curl -i -b cookie-jar -X GET -k https://info3103.cs.unb.ca:39144/projects
+# Confirm it's no longer accessible
+# Expected: 404 NOT FOUND
+curl -i -b cookie-jar -X GET -k https://info3103.cs.unb.ca:39144/projects/6
+
+# Test Logout
+# Expected: 200 OK
+# Return URI: /projects
+curl -i -X DELETE -c cookie-jar -k https://info3103.cs.unb.ca:39144/signin
+# Confirm Logged Out
+# Expected: 403 FORBIDDEN
+curl -i -X GET -c cookie-jar -k https://info3103.cs.unb.ca:39144/signin
