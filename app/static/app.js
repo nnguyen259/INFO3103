@@ -284,7 +284,7 @@ var app = new Vue({
   	getEffect1(effectId){
   		axios.get(this.serviceURL+"/effects/"+effectId)
   		.then(response => {
-  			this.effectq = response.data.effect[0];
+  			this.effect1 = response.data.effect[0];
   		})
   	}
     
