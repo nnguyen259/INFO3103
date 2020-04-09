@@ -96,13 +96,13 @@
 			              <span class="input-group-text">Project Name</span>
 			            </div>
 			            <input v-if="editMode" class="col-8 form-control" type="text" v-model="selectedProject.name" placeholder="Project Name" />
-			            <input v-else class="col-8 form-control" type="text" v-model="selectedProject.name" placeholder="Project Name" readonly/>
+			            <input v-else class="col-8 form-control form-control-plaintext" type="text" v-model="selectedProject.name" placeholder="Project Name" readonly/>
 			          </div>
 			          <div class="input-group mb-3">
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Owner</span>
 			            </div>
-			            <input class="col-8 form-control" type="text" v-model="selectedProject.owner" readonly/>
+			            <input class="col-8 form-control form-control-plaintext" type="text" v-model="selectedProject.owner" readonly/>
 			          </div>
 			          <div class="input-group mb-3">
 			            <div class="input-group-prepend">
@@ -162,7 +162,7 @@
 			              <span class="input-group-text">Name</span>
 			            </div>
 			            <input v-if="editMagic" class="col-8 form-control" type="text" v-model="selectedMagic.name" placeholder="Name" />
-			            <input v-else class="col-8 form-control" type="text" v-model="selectedMagic.name" placeholder="Name" readonly/>
+			            <input v-else class="col-8 form-control form-control-plaintext" type="text" v-model="selectedMagic.name" placeholder="Name" readonly/>
 			          </div>
 			          
 			          <div class="input-group mb-3">
@@ -170,7 +170,7 @@
 			              <span class="input-group-text">Animation</span>
 			            </div>
 			            <input v-if="editMagic" class="col-8 form-control" type="text" v-model="selectedMagic.animation" placeholder="Animation" />
-			            <input v-else class="col-8 form-control" type="text" v-model="selectedMagic.animation" placeholder="Animation" readonly/>
+			            <input v-else class="col-8 form-control form-control-plaintext" type="text" v-model="selectedMagic.animation" placeholder="Animation" readonly/>
 			          </div>
 			          
 			          <div class="input-group mb-3">
@@ -178,17 +178,17 @@
 			              <span class="input-group-text">Description</span>
 			            </div>
 			            <textarea v-if="editMagic" class="col-8 form-control" v-model="selectedMagic.description" placeholder="Description"></textarea>
-			            <textarea v-else class="col-8 form-control" v-model="selectedMagic.description" placeholder="Description" readonly></textarea>
+			            <textarea v-else class="col-8 form-control form-control-plaintext" v-model="selectedMagic.description" placeholder="Description" readonly></textarea>
 			          </div>
 			          
 			          <div class="input-group mb-3">
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Category</span>
 			            </div>
-			            <select v-if="editMagic" class="custom-select col-8" v-model="selectedMagic.category.id">
+			            <select v-if="editMagic" class="custom-select col-3" v-model="selectedMagic.category.id">
 			            	<option v-for="category in categories" :value="category.id">{{category.name}}</option>
 			            </select>
-			            <select v-else class="custom-select col-8" v-model="selectedMagic.category.id" disabled>
+			            <select v-else class="custom-select col-3" v-model="selectedMagic.category.id" disabled>
 			            	<option v-for="category in categories" :value="category.id">{{category.name}}</option>
 			            </select>
 			          </div>
@@ -197,10 +197,10 @@
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Type</span>
 			            </div>
-			            <select v-if="editMagic" class="custom-select col-8" v-model="selectedMagic.type.id">
+			            <select v-if="editMagic" class="custom-select col-3" v-model="selectedMagic.type.id">
 			            	<option v-for="type in types" :value="type.id">{{type.name}}</option>
 			            </select>
-			            <select v-else class="custom-select col-8" v-model="selectedMagic.type.id" disabled>
+			            <select v-else class="custom-select col-3" v-model="selectedMagic.type.id" disabled>
 			            	<option v-for="type in types" :value="type.id">{{type.name}}</option>
 			            </select>
 			          </div>
@@ -209,10 +209,10 @@
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">User</span>
 			            </div>
-			            <select v-if="editMagic" class="custom-select col-8" v-model="selectedMagic.character.id">
+			            <select v-if="editMagic" class="custom-select col-3" v-model="selectedMagic.character.id">
 			            	<option v-for="character in characters" :value="character.id">{{character.name}}</option>
 			            </select>
-			            <select v-else class="custom-select col-8" v-model="selectedMagic.character.id" disabled>
+			            <select v-else class="custom-select col-3" v-model="selectedMagic.character.id" disabled>
 			            	<option v-for="character in characters" :value="character.id">{{character.name}}</option>
 			            </select>
 			          </div>
