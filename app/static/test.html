@@ -145,6 +145,7 @@
 		          			<td>{{magic.magic_id}}</td>
 		          			<td>{{magic.name}}</td>
 		          			<td>{{magic.description}}</td>
+		          			<td v-if="selectedProject.owner == loggedIn"><button type="button">Edit</button></td>
 		          		</tr>
 			          </table>
 			    	</div>
