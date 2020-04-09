@@ -92,6 +92,7 @@ var app = new Vue({
     	this.editMagic = false;
     	this.selectedMagic = {};
     	this.editMode = false;
+    	this.magicData = null;
     },
 	
 	selectProject(projectId){
