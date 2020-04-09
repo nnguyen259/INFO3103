@@ -327,7 +327,7 @@
 			            <input v-if="!editMagic && effect2.desc2 != null" class="col-2 form-control" v-model="selectedMagic.effect2.data2" readonly number/>
 			          </div>
 			          <button v-if="!editMagic && selectedProject.owner == loggedIn" type="button" class="btn btn-secondary" v-on:click="editMagic = true">Edit</button>
-			          <button v-if="editMagic" type="button" class="btn btn-secondary" v-on:click="turnOffMagicEdit()">Close</button>
+			          <button v-if="editMagic" type="button" class="btn btn-secondary" v-on:click="turnOffEditMagic()">Close</button>
 			          <button v-if="editMagic" type="button" class="btn btn-success" v-on:click="submitMagic()">Submit</button>
 		          </div>
 			</div>
