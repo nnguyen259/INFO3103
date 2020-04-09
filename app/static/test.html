@@ -268,6 +268,20 @@
 			            <input v-if="editMagic" class="col-2 form-control" v-model="selectedMagic.cost" number/>
 			            <input v-else class="col-2 form-control " v-model="selectedMagic.cost" readonly number/>
 			          </div>
+			          
+			          <div class="input-group mb-3">
+			            <div class="input-group-prepend">
+			              <span class="input-group-text">Cast Delay</span>
+			            </div>
+			            <input v-if="editMagic" class="col-2 form-control" v-model="selectedMagic.cast_delay" number/>
+			            <input v-else class="col-2 form-control " v-model="selectedMagic.cast_delay" readonly number/>
+			            
+			            <div class="input-group-prepend pl-4">
+			              <span class="input-group-text">Recovery Delay</span>
+			            </div>
+			            <input v-if="editMagic" class="col-2 form-control" v-model="selectedMagic.recovery_delay" number/>
+			            <input v-else class="col-2 form-control " v-model="selectedMagic.recovery_delay" readonly number/>
+			          </div>
 		          </div>
 			</div>
 		</div>

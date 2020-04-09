@@ -35,7 +35,9 @@ var app = new Vue({
 	effects: null,
 	targetTypes: null,
 	types: null,
-	elements: null
+	elements: null,
+	effect1:{},
+	effect2:{}
   },
   //------- lifecyle hooks --------
   mounted: function() {
