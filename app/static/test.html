@@ -259,8 +259,14 @@
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Unbalance Bonus</span>
 			            </div>
-			            <input v-if="editMagic" class="col-8 form-control" v-model="selectedMagic.unbalance" number/>
-			            <input v-else class="col-8 form-control " v-model="selectedMagic.unbalance" readonly number/>
+			            <input v-if="editMagic" class="col-2 form-control" v-model="selectedMagic.unbalance" number/>
+			            <input v-else class="col-2 form-control " v-model="selectedMagic.unbalance" readonly number/>
+			            
+			            <div class="input-group-prepend pl-4">
+			              <span class="input-group-text">Cost</span>
+			            </div>
+			            <input v-if="editMagic" class="col-2 form-control" v-model="selectedMagic.cost" number/>
+			            <input v-else class="col-2 form-control " v-model="selectedMagic.cost" readonly number/>
 			          </div>
 		          </div>
 			</div>
