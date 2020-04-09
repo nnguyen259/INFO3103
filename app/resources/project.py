@@ -17,10 +17,6 @@ class Project(Resource):
 				print(collabs)
 				if not session['username'] in [d['username'] for d in collabs] :
 					abort(403)
-		if row[0]['isPublic']:
-			row[0]['isPublic'] = 'true'
-		else:
-			row[0]['isPublic'] = 'false'
 		return make_response(jsonify({'project': row}), 200)
 	def delete(self, project_id):
 		if 'username' not in session:
