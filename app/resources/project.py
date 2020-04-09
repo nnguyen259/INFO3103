@@ -27,7 +27,7 @@ class Project(Resource):
 		if row[0]['owner'] != session['username']:
 			abort(403, 'User not authorized')
 		row = postToDb('deleteProject', project_id)
-		uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)
+		uri = 'https://'+settings.APP_HOST+':'+str(settings.APP_PORT)
 		uri = uri+'/projects'
 		return make_response(jsonify( { "uri" : uri } ), 200)
 	def put(self, project_id):
@@ -45,7 +45,7 @@ class Project(Resource):
 		newPublicStatus = request.json['Visibility'] if 'Visibility' in request.json else row[0]['Visibility']
 		
 		row = postToDb('editProject', project_id, newName, newPublicStatus)
-		uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)
+		uri = 'https://'+settings.APP_HOST+':'+str(settings.APP_PORT)
 		uri = uri+'/projects'+'/'+ project_id
 		return make_response(jsonify( { "uri" : uri } ), 200)
 
@@ -120,7 +120,7 @@ class CollaboratorsInProject(Resource):
 			
 		nameIn = request.json['User Name']
 		postToDb('addCollaborator', nameIn, project_id)
-		uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)
+		uri = 'https://'+settings.APP_HOST+':'+str(settings.APP_PORT)
 		uri = uri+'/'+'projects/'+project_id+'/shared'
 		return make_response(jsonify( { "uri" : uri } ), 200)
 	def delete(self, project_id):
@@ -136,7 +136,7 @@ class CollaboratorsInProject(Resource):
 			
 		nameIn = request.json['User Name']
 		postToDb('deleteCollaborator', nameIn, project_id)
-		uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)
+		uri = 'https://'+settings.APP_HOST+':'+str(settings.APP_PORT)
 		uri = uri+'/'+'projects/'+project_id+'/shared'
 		return make_response(jsonify( { "uri" : uri } ), 200)
 	
