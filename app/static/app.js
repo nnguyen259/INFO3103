@@ -94,6 +94,7 @@ var app = new Vue({
 			if (this.projectsData[x].id == projectId) {
 				this.selectedProject = JSON.parse(JSON.stringify(this.projectsData[x]));
 				this.creatingProject = false;
+				this.magicData = null;
 			}
 		}
 	},
