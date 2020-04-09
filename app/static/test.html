@@ -88,7 +88,8 @@
 				</div>
 				<div v-else>
 					<div class="form-group col-6 pt-3">
-					  <h4>View/Edit Project</h4>
+					  <h4 v-if="editMode">Edit Project</h4>
+					  <h4 v-else>View Project</h4>
 			          <div class="input-group mb-3">
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Project Name</span>
@@ -98,13 +99,29 @@
 			          </div>
 			          <div class="input-group mb-3">
 			            <div class="input-group-prepend">
+			              <span class="input-group-text">Owner</span>
+			            </div>
+			            <input class="col-8 form-control" type="text" v-model="selectedProject.owner" readonly/>
+			          </div>
+			          <div class="input-group mb-3">
+			            <div class="input-group-prepend">
 			              <span class="input-group-text mr-4">Public</span>
 			            </div>
-			            <div class="form-check form-check-inline">
+			            <div v-if="editMode" class="form-check form-check-inline">
 			            	<input class="form-check-input" type="radio" value="1" name="projectPublic" v-model="selectedProject.isPublic" id="publicYes"> 
 			            	<label class="form-check-label" for="publicYes">Yes</label>
 			            </div>
-			            <div class="form-check form-check-inline">
+			            <div v-else class="form-check form-check-inline">
+			            	<input class="form-check-input" type="radio" value="1" name="projectPublic" v-model="selectedProject.isPublic" id="publicYes"> 
+			            	<label class="form-check-label" for="publicYes">Yes</label>
+			            </div>
+			            
+			            
+			            <div v-if="editMode" class="form-check form-check-inline">
+			            	<input class="form-check-input" type="radio" value="0" name="projectPublic" v-model="selectedProject.isPublic" id="publicNo"> 
+			            	<label class="form-check-label" for="publicNo">No</label>
+			            </div>
+			            <div v-else class="form-check form-check-inline">
 			            	<input class="form-check-input" type="radio" value="0" name="projectPublic" v-model="selectedProject.isPublic" id="publicNo"> 
 			            	<label class="form-check-label" for="publicNo">No</label>
 			            </div>
