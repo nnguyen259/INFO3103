@@ -85,6 +85,7 @@ var app = new Vue({
     	this.selectedProject = {id: 1, isPublic: true};
     	this.creatingProject = true;
     	this.getEligibleToBased();
+    	$('.list-group-item.list-group-item-action').removeClass('active');
     },
 	
 	selectProject(projectId){
