@@ -156,6 +156,11 @@ var app = new Vue({
     
     turnOnEdit(){
     	this.editMode = true;
+    },
+    
+    turnOffEdit(){
+    	this.editMode = false;
+    	//this.selectProject(this.selectedProject.id);
     }
     
   },

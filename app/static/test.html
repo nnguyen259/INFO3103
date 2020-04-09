@@ -127,6 +127,7 @@
 			            </div>
 			          </div>
 			          <button v-if="!editMode && selectedProject.owner == loggedIn" type="button" class="btn btn-danger" v-on:click="turnOnEdit()">Edit</button>
+			          <button v-if="editMode" type="button" class="btn btn-secondary" v-on:click="turnOffEdit()">Close</button>
 			    	</div>
 				</div>
 			</div>
