@@ -227,5 +227,12 @@ var app = new Vue({
     
   },
   //------- END methods --------
-
+  computed: {
+	  categories(){
+		  axios.get(this.serviceURL+"/categories")
+		  .then(response => {
+			  return response.data.categories;
+		  })
+	  }
+  }
 });
