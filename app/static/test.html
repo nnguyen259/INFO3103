@@ -154,7 +154,7 @@
 				</div>
 			</div>
 			<div v-else class="col mr-4 d-flex flex-column overlow-auto" style="background-color:#ffffff">
-					<div class="form-group col-6 pt-3 flex-shrink-1">
+					<div class="form-group col-8 pt-3 flex-shrink-1">
 					  <h4 v-if="editMagic">Edit Magic</h4>
 					  <h4 v-else>View Magic</h4>
 			          <div class="input-group mb-3">
@@ -294,15 +294,15 @@
 			            	<option v-for="effect in effects" :value="effect.id">{{effect.name}}</option>
 			            </select>
 			            <div class="input-group-prepend">
-			              <span class="input-group-text">Range</span>
+			              <span class="input-group-text">{{effect1.desc1}}</span>
 			            </div>
-			            <input v-if="editMagic" class="col-2 form-control" v-model="selectedMagic.target_range" number/>
-			            <input v-else class="col-2 form-control" v-model="selectedMagic.target_range" readonly number/>
+			            <input v-if="editMagic" class="col-2 form-control" v-model="effect1.desc1" number/>
+			            <input v-else class="col-2 form-control" v-model="effect1.desc1" readonly number/>
 			            <div class="input-group-prepend">
-			              <span class="input-group-text">Size</span>
+			              <span class="input-group-text">{{effect1.desc2}}</span>
 			            </div>
-			            <input v-if="editMagic" class="col-2 form-control" v-model="selectedMagic.target_size" number/>
-			            <input v-else class="col-2 form-control" v-model="selectedMagic.target_size" readonly number/>
+			            <input v-if="editMagic" class="col-2 form-control" v-model="effect1.desc2" number/>
+			            <input v-else class="col-2 form-control" v-model="effect1.desc2" readonly number/>
 			          </div>
 		          </div>
 			</div>
