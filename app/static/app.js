@@ -160,7 +160,7 @@ var app = new Vue({
     
     turnOffEdit(){
     	this.editMode = false;
-    	//this.selectProject(this.selectedProject.id);
+    	this.selectProject(this.selectedProject.id);
     }
     
   },
