@@ -218,6 +218,8 @@
 			            <div class="input-group-prepend">
 			              <span class="input-group-text">Level Learn</span>
 			            </div>
+			            <input v-if="editMagic" class="col-1 form-control" type="number" v-model="selectedMagic.level_learn"/>
+			            <input v-if="editMagic" class="col-1 form-control" type="number" v-model="selectedMagic.level_learn" readonly/>
 			          </div>
 		          </div>
 			</div>
