@@ -203,6 +203,44 @@ var app = new Vue({
     	}
     },
     
+    submitMagic(){
+		axios.put(this.serviceURL+"/projects/"+this.selectedProject.id+"/magics/"+this.selectedMagic.id, {
+			'name': this.selectedMagic.name,
+			'animation': this.selectedMagic.animation,
+			'description': this.selectedMagic.description,
+			
+			'character_id': this.selectedMagic.character.id,
+			'category_id': this.selectedMagic.category.id,
+			'type_id': this.selectedMagic.type.id,
+			'element_id': this.selectedMagic.element.id,
+			
+			'target_type_id': this.selectedMagic.target_type.id,
+			'target_range': this.selectedMagic.target_range,
+			'target_size': this.selectedMagic.target_size,
+			
+			'unbalance': this.selectedMagic.unbalance,
+			'cost': this.selectedMagic.cost,
+			'cast_delay': this.selectedMagic.cast_delay,
+			'recovery_delay': this.selectedMagic.recovery_delay,
+			'level_learn': this.selectedMagic.level_learn,
+			
+			'effect1_id': this.effect1.id,
+			'effect1_data1': this.selectedMagic.effect1.data1,
+			'effect1_data2': this.selectedMagic.effect1.data2,
+			
+			'effect2_id': this.effect2.id,
+			'effect2_data1': this.selectedMagic.effect2.data1,
+			'effect2_data2': this.selectedMagic.effect2.data2
+		})
+		.then(response => {
+			return axios.get(response.data.uri);
+		})
+		.then(response => {
+			this.selectedMagic = JSON.parse(JSON.stringify(response.data.magic[0]));
+			this.editMagic = false;
+		})
+    },
+    
     turnOnEdit(){
     	this.editMode = true;
     },
@@ -210,6 +248,11 @@ var app = new Vue({
     turnOffEdit(){
     	this.editMode = false;
     	this.selectProject(this.selectedProject.id);
+    },
+    
+    turnOffEditMagic(){
+    	this.editMagic = false;
+    	this.selectMagic(this.selectedMagic.id);
     },
     
     deleteProject(){
