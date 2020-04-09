@@ -148,6 +148,7 @@ var app = new Vue({
     		})
     		.then(response => {
     			this.selectedProject = JSON.parse(JSON.stringify(response.data.project));
+    			this.creatingProject = false;
     		})
     	}
     }
