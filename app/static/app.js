@@ -237,7 +237,7 @@ var app = new Vue({
     		this.selectedMagic = response.data.magic[0];
     		this.viewMagic = true;
     		this.getEffect1(response.data.magic[0].effect1.id);
-    		this.getEffect1(response.data.magic[0].effect2.id);
+    		this.getEffect2(response.data.magic[0].effect2.id);
     	})
     },
     
