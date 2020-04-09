@@ -42,7 +42,7 @@ class Project(Resource):
 			abort(403)
 		
 		newName = request.json['Name'] if 'Name' in request.json else row[0]['Name']
-		newPublicStatus = request.json['Visibility'] == 'True' if 'Visibility' in request.json else row[0]['Visibility']
+		newPublicStatus = request.json['Visibility'] if 'Visibility' in request.json else row[0]['Visibility']
 		
 		row = postToDb('editProject', project_id, newName, newPublicStatus)
 		uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)

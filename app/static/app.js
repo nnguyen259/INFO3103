@@ -151,6 +151,22 @@ var app = new Vue({
     			this.selectedProject = JSON.parse(JSON.stringify(response.data.project[0]));
     			this.creatingProject = false;
     		})
+    	} else {
+    		axios.put(this.serviceURL+"/projects/"+this.selectedProject.id, {
+    			'Name': this.selectedProject.name,
+    			'Visibility': this.selectedProject.isPublic
+    		})
+    		.then(response => {
+    			if(this.currentTab === "Public") this.getPublic();
+    			if(this.currentTab === "Private") this.getPrivate();
+    			if(this.currentTab === "Shared") this.getShared();
+    			this.creatingProject = false;
+    			return axios.get(response.data.uri);
+    		})
+    		.then(response => {
+    			this.selectedProject = JSON.parse(JSON.stringify(response.data.project[0]));
+    			this.creatingProject = false;
+    		})
     	}
     },
     
