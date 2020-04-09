@@ -252,7 +252,7 @@ var app = new Vue({
     
     turnOffEditMagic(){
     	this.editMagic = false;
-    	this.selectMagic(this.selectedMagic.id);
+    	this.selectMagic(this.selectedMagic.magic_id);
     },
     
     deleteProject(){
