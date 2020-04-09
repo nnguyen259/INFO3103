@@ -104,6 +104,7 @@ var app = new Vue({
       .then(response => {
           this.projectsData = response.data.projects;
           document.body.style.backgroundColor= "lightgreen";
+          $('.list-group-item.list-group-item-action').removeClass('active');
       })
       .catch(e => {
         alert("Unable to load the school data");
@@ -119,6 +120,7 @@ var app = new Vue({
     	.then(response => {
     		this.projectsData = response.data.projects;
     		document.body.style.backgroundColor= "lightblue";
+    		$('.list-group-item.list-group-item-action').removeClass('active');
     	})
     },
     
