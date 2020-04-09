@@ -26,7 +26,9 @@ var app = new Vue({
 		owner: ""
 	},
 	eligibleProjects:{},
-	magicData: null
+	editMagic: false,
+	magicData: null,
+	selectedMagic:{}
   },
   //------- lifecyle hooks --------
   mounted: function() {

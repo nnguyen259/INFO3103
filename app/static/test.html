@@ -50,7 +50,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col mr-4 d-flex flex-column overflow-auto" style="background-color:#ffffff">
+			<div v-if="!editMagic" class="col mr-4 d-flex flex-column overflow-auto" style="background-color:#ffffff">
 				<div v-if="creatingProject">
 					<div v-if="authenticated">
 						<div class="form-group col-6 pt-3">
@@ -153,6 +153,7 @@
 			    	</div>
 				</div>
 			</div>
+			<div v-else></div>
 		</div>
 		<div>Made by Nhan Nguyen</div>
 	</div>
