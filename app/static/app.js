@@ -89,6 +89,9 @@ var app = new Vue({
     	this.creatingProject = true;
     	this.getEligibleToBased();
     	$('.list-group-item.list-group-item-action').removeClass('active');
+    	this.editMagic = false;
+    	this.selectedMagic = {};
+    	this.editMode = false;
     },
 	
 	selectProject(projectId){
