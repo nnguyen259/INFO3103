@@ -30,17 +30,17 @@
 		</div>
 		
 		
-		<div class="container-fluid">
-			<div class="col-3 mx-2" style="background-color:#ccffff">
+		<div class="container-fluid d-flex overflow-auto">
+			<div class="col-3 mx-2 d-flex flex-column overflow-auto" style="background-color:#ccffff">
 				<h3>Projects List</h3>
 				<div v-if="authenticated" class="btn-group d-flex" role="group">
 					<button type="button" class="btn btn-success w-100" v-on:click="getPublic()">Public</button>
 					<button type="button" class="btn btn-info w-100" v-on:click="getPrivate()">Private</button>
 					<button type="button" class="btn btn-warning w-100" v-on:click="getShared()">Shared</button>
 				</div><br>
-				<div id="projectsList">
+				<button type="button" class="btn btn-secondary" v-if="authenticated" data-toggle="list" v-on:click="createProject()"><b>Create New Project</b></button>
+				<div id="projectsList overflow-auto">
 					<div class="list-group" role="tablist">
-						<button type="button" class="btn btn-secondary" v-if="authenticated" data-toggle="list" v-on:click="createProject()"><b>Create New Project</b></button>
 						<a v-for="project in projectsData" :id="'list-' + project.id + '-list'" class="list-group-item list-group-item-action" data-toggle="list" role="tab" :href="'#' + project.id" v-on:click="selectProject(project.id)">
 							<div class="d-flex w-100 justify-content-between">
 								{{project.name}}
