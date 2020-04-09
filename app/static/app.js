@@ -29,7 +29,12 @@ var app = new Vue({
 	viewMagic: false,
 	editMagic: false,
 	magicData: null,
-	selectedMagic:{}
+	selectedMagic:{},
+	categories: null,
+	characters: null,
+	effects: null,
+	targetTypes: null,
+	types: null
   },
   //------- lifecyle hooks --------
   mounted: function() {
@@ -47,6 +52,7 @@ var app = new Vue({
         console.log(error);
     });
     this.getPublic();
+    this.getCategories();
   },
   //------- methods --------
   methods: {
@@ -223,16 +229,15 @@ var app = new Vue({
     		this.selectedMagic = response.data.magic[0];
     		this.viewMagic = true;
     	})
-    }
+    },
+    
+    getCategories(){
+		  axios.get(this.serviceURL+"/categories")
+		  .then(response => {
+			  this.categories = response.data.categories;
+		  })
+	  }
     
   },
   //------- END methods --------
-  computed: {
-	  categories(){
-		  axios.get(this.serviceURL+"/categories")
-		  .then(response => {
-			  return response.data.categories;
-		  })
-	  }
-  }
 });
