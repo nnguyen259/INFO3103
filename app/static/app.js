@@ -53,6 +53,10 @@ var app = new Vue({
     });
     this.getPublic();
     this.getCategories();
+    this.getTypes();
+    this.getCharacters();
+    this.getTargetTypes();
+    this.getEffects();
   },
   //------- methods --------
   methods: {
@@ -232,11 +236,39 @@ var app = new Vue({
     },
     
     getCategories(){
-		  axios.get(this.serviceURL+"/categories")
-		  .then(response => {
-			  this.categories = response.data.categories;
-		  })
-	  }
+	  axios.get(this.serviceURL+"/categories")
+	  .then(response => {
+		  this.categories = response.data.categories;
+	  })
+    },
+    
+    getTypes(){
+	  axios.get(this.serviceURL+"/types")
+	  .then(response => {
+		  this.types = response.data.types;
+	  })
+    },
+    
+    getCharacters(){
+	  axios.get(this.serviceURL+"/characters")
+	  .then(response => {
+		  this.characters = response.data.characters;
+	  })
+    },
+  
+    getTargetTypes(){
+	  axios.get(this.serviceURL+"/targetTypes")
+	  .then(response => {
+		  this.targetTypes = response.data.targetTypes;
+	  })
+  	},
+  	
+  	getEffects(){
+  		axios.get(this.serviceURL+"/effects")
+  		.then(response => {
+  			this.effects = response.data.effects;
+  		})
+  	}
     
   },
   //------- END methods --------
