@@ -28,7 +28,9 @@ CREATE TABLE magics (
 	level_learn int not null,
 	locked boolean not null default true,
 	PRIMARY KEY (id),
-	FOREIGN KEY (project_id) REFERENCES projects(id),
+	FOREIGN KEY (project_id) REFERENCES projects(id)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
 	FOREIGN KEY (character_id) REFERENCES characters(id),
 	FOREIGN KEY (category_id) REFERENCES categories(id),
 	FOREIGN KEY (type_id) REFERENCES types(id),
