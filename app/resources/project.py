@@ -76,7 +76,7 @@ class ProjectList(Resource):
 		
 		postToDb('duplicateProject', baseId, row['LAST_INSERT_ID()'])
 		
-		uri = 'http://'+settings.APP_HOST+':'+str(settings.APP_PORT)
+		uri = 'https://'+settings.APP_HOST+':'+str(settings.APP_PORT)
 		uri = uri+str(request.url_rule)+'/'+str(row['LAST_INSERT_ID()'])
 		return make_response(jsonify( { "uri" : uri } ), 201) # successful resource creation
 	

@@ -17,6 +17,7 @@ var app = new Vue({
       password: ""
     },
 	creatingProject: true,
+	editMode: false,
 	currentTab: "Public",
 	selectedProject: {
 		id: "",
@@ -130,6 +131,26 @@ var app = new Vue({
     	}));
     },
     
+    submitProject(){
+    	if(!editMode){
+    		axios
+    		.post(this.serviceURL+"/projects", {
+    			'Name': this.selectedProject.name,
+    			'Base': this.selectedProject.id,
+    			'Visibility': this.selectedProject.isPublic
+    		})
+    		.then(response => {
+    			if(this.currentTab === "Public") getPublic();
+    			if(this.currentTab === "Private") getPrivate();
+    			if(this.currentTab === "Shared") getShared();
+    			this.creatingProject = false;
+    			return axios.get(response.data.uri);
+    		})
+    		.then(response => {
+    			this.selectedProject = response.data.project;
+    		})
+    	}
+    }
     
   },
   //------- END methods --------
