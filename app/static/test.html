@@ -129,7 +129,8 @@
 			          </div>
 			          <button v-if="!editMode && selectedProject.owner == loggedIn" type="button" class="btn btn-secondary" v-on:click="turnOnEdit()">Edit</button>
 			          <button v-if="!editMode && selectedProject.owner == loggedIn" type="button" class="btn btn-danger" v-on:click="deleteProject()">Delete</button>
-			          <button v-if="!editMode" type="button" class="btn btn-info" v-on:click="getMagic()">Get Contents</button>
+			          <button v-if="!editMode && magicData == null" type="button" class="btn btn-info" v-on:click="getMagic()">Show Contents</button>
+			          <button v-if="!editMode && magicData != null" type="button" class="btn btn-info" v-on:click="magicData = null">Hide Contents</button>
 			          <button v-if="editMode" type="button" class="btn btn-secondary" v-on:click="turnOffEdit()">Close</button>
 			          <button v-if="editMode" type="button" class="btn btn-success" v-on:click="submitProject()">Submit</button>
 			          
